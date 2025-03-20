@@ -1,4 +1,4 @@
-import br.edu.ifpr.TipoDocumento;
+import br.edu.ifpr.Enumeration.TipoDocumento;
 
 public class Documento {
     private Long id;

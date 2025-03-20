@@ -1,4 +1,4 @@
-import br.edu.ifpr.Animal.Model.Sexo;
+import br.edu.ifpr.Enumeration.Sexo;
 
 import java.util.*;
 
