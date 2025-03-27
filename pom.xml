@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>groupId</groupId>
-    <artifactId>Sistema-de-Adocao-de-Animais</artifactId>
+    <artifactId>Sistema-de-br.edu.ifpr.Adocao.Adocao-de-Animais</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <properties>

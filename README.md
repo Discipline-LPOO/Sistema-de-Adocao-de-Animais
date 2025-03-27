@@ -1,4 +1,4 @@
-# Sistema-de-br.edu.ifpr.Adocao-de-Animais
+# Sistema-de-br.edu.ifpr.br.edu.ifpr.Adocao.Adocao-de-Animais
 
 Protótipo de sistema de adoção de animais para a matéria de POO.
 
