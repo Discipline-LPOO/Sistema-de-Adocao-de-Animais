@@ -1,4 +1,4 @@
-package br.edu.ifpr;
+package br.edu.ifpr.Documento;
 
 enum TipoDocumento {
     RG,

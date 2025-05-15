@@ -1,23 +1,30 @@
+package br.edu.ifpr.NomeComum;
+
 public class NomeComum {
-    private Long id;
+    private int id;
     private String nome;
-}
+
     //Construtor
-    public NomeComum (Long id, String nome) {
+    public NomeComum(int id, String nome) {
         this.id = id;
         this.nome = nome;
     }
+
     //Getters e Setters
-    public Long getId() {
+    public int getId() {
         return id;
     }
-    public Long setId(Long id) {
+
+    public void setId(int id) {
         this.id = id;
     }
+
     public String getNome() {
         return nome;
     }
-    public String setNome(String nome) {
+
+    public void setNome(String nome) {
         this.nome = nome;
     }
+}
     
