@@ -1,7 +1,6 @@
 package br.edu.ifpr.Vacina;
 
 // Importações de biblioteca
-import java.util.ArrayList;
 import java.util.List;
 
 // Importações do projeto
@@ -14,19 +13,18 @@ public class Vacina {
     private List<Doenca> doencas;
 
     //Construtores
-    public Vacina(int id, String nome, String fabricante, List<Doenca> doencas) {
+    public Vacina(int id, String nome, String fabricante, List<Doenca> Doenca) {
         this.id = id;
         this.nome = nome;
         this.fabricante = fabricante;
         this.doencas = doencas;
-    }
-
+}
     //Getters e Setters
     public int getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(int id){
         this.id = id;
     }
 
@@ -34,7 +32,7 @@ public class Vacina {
         return nome;
     }
 
-    public void setNome(String nome) {
+    public void setNome(String nome){
         this.nome = nome;
     }
 
@@ -42,7 +40,7 @@ public class Vacina {
         return fabricante;
     }
 
-    public void setFabricante(String fabricante) {
+    public void setFabricante(String fabricante){
         this.fabricante = fabricante;
     }
 
@@ -50,7 +48,7 @@ public class Vacina {
         return doencas;
     }
 
-    public void setDoencas(List<Doenca> doencas) {
+    public void setDoencas(List < Doenca > doencas) {
         this.doencas = doencas;
     }
 }

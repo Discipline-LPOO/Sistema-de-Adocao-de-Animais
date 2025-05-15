@@ -1,11 +1,11 @@
-package br.edu.ifpr.NomeComum;
+package br.edu.ifpr.Apelido;
 
-public class NomeComum {
+public class Apelido {
     private int id;
     private String nome;
 
     //Construtor
-    public NomeComum(int id, String nome) {
+    public Apelido(int id, String nome) {
         this.id = id;
         this.nome = nome;
     }

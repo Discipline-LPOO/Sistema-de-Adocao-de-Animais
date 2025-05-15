@@ -1,19 +1,18 @@
 package br.edu.ifpr.Doenca;
 
 // Importações de biblioteca
-import java.util.ArrayList;
 import java.util.List;
 
 // Importações de projeto
-import br.edu.ifpr.NomeComum.NomeComum;
+import br.edu.ifpr.Apelido.Apelido;
 
 public class Doenca {
     private int id;
     private String nome;
-    private List<NomeComum> apelidos;
+    private List<Apelido> apelidos;
 
     //Construtores
-    public Doenca(int id, String nome, List<NomeComum> apelidos) {
+    public Doenca(int id, String nome, List<Apelido> apelidos) {
         this.id = id;
         this.nome = nome;
         this.apelidos = apelidos;
@@ -36,11 +35,11 @@ public class Doenca {
         this.nome = nome;
     }
 
-    public List<NomeComum> getApelidos() {
+    public List<Apelido> getApelidos() {
         return apelidos;
     }
 
-    public void setApelidos(List<NomeComum> apelidos) {
+    public void setApelidos(List<Apelido> apelidos) {
         this.apelidos = apelidos;
     }
 }
