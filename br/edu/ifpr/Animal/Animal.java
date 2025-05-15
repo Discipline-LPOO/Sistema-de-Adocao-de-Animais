@@ -4,7 +4,6 @@ package br.edu.ifpr.Animal;
 import java.util.*;
 
 // Importações do projeto
-import br.edu.ifpr.Animal.Enum.Sexo;
 import br.edu.ifpr.Especie.Especie;
 import br.edu.ifpr.Vacina.Vacina;
 

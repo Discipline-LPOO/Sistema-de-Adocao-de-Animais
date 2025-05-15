@@ -1,4 +1,4 @@
-package br.edu.ifpr.Animal.Enum;
+package br.edu.ifpr.Animal;
 
 public enum Sexo {
     NAOIDENTIFICADO,

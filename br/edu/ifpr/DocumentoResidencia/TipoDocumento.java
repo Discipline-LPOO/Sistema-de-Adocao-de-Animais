@@ -1,10 +1,6 @@
-package br.edu.ifpr.Documento;
+package br.edu.ifpr.DocumentoResidencia;
 
 enum TipoDocumento {
-    RG,
-    CNH,
-    CTPS,
-    DNI,
     FATURA,
     CONTACONSUMO,
     CONTRATO,

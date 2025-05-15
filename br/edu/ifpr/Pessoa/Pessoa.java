@@ -1,19 +1,19 @@
 package br.edu.ifpr.Pessoa;
 
 // Importações do projeto
-import br.edu.ifpr.Documento.Documento;
+import br.edu.ifpr.DocumentoIdentidade.DocumentoIdentidade;
 
 public class Pessoa {
     private int id;
     private String nome;
     private String cpf;
-    private Documento docID;
+    private DocumentoIdentidade docID;
     private String endereco;
-    private Documento comprovanteEnd;
+    private DocumentoIdentidade comprovanteEnd;
     private String telefone;
 
     //Construtor
-    public Pessoa(int id, String nome, String cpf, Documento docID, String endereco, Documento comprovanteEnd, String telefone) {
+    public Pessoa(int id, String nome, String cpf, DocumentoIdentidade docID, String endereco, DocumentoIdentidade comprovanteEnd, String telefone) {
         this.id = id;
         this.nome = nome;
         this.cpf = cpf;
@@ -48,11 +48,11 @@ public class Pessoa {
         this.cpf = cpf;
     }
 
-    public Documento getDocID() {
+    public DocumentoIdentidade getDocID() {
         return docID;
     }
 
-    public void setDocID(Documento docID) {
+    public void setDocID(DocumentoIdentidade docID) {
         this.docID = docID;
     }
 
@@ -64,11 +64,11 @@ public class Pessoa {
         this.endereco = endereco;
     }
 
-    public Documento getComprovanteEnd() {
+    public DocumentoIdentidade getComprovanteEnd() {
         return comprovanteEnd;
     }
 
-    public void setComprovanteEnd(Documento comprovanteEnd) {
+    public void setComprovanteEnd(DocumentoIdentidade comprovanteEnd) {
         this.comprovanteEnd = comprovanteEnd;
     }
 }
