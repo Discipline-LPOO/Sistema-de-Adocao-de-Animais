@@ -4,13 +4,32 @@ package br.edu.ifpr.Adotante;
 import br.edu.ifpr.DocumentoIdentidade.DocumentoIdentidade;
 import br.edu.ifpr.DocumentoResidencia.DocumentoResidencia;
 
+import jakarta.persistence.*;
+
+@Entity
+@Table(name = "adotantes")
 public class Adotante {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
+
+    @Column(name = "nome", length = 45, nullable = false)
     private String nome;
+
+    @Column(name = "cpf", length = 11, nullable = false)
     private String cpf;
+
+    @OneToOne()
     private DocumentoIdentidade docID;
+
+    @Column(name = "endereco", nullable = false)
     private String endereco;
+
+    @OneToOne()
     private DocumentoResidencia comprovanteEnd;
+
+    @Column(name = "telefone", length = 11, nullable = false)
     private String telefone;
 
     //Construtor

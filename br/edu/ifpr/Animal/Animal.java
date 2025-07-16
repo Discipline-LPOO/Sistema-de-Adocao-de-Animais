@@ -14,31 +14,36 @@ public class Animal{
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @OneToOne
     private int id;
 
     @Column(name= "nome", length = 45, nullable = false)
     private String nome;
 
-    @Column(name = "data_nas", nullable = false)
+    @Column(name = "data_nasc", nullable = false)
     private Date data_nasc;
 
-    @OneToMany(mappedBy = "animais")
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "id_especie", nullable = false)
     private Especie especie;
 
+    @Enumerated(EnumType.STRING)
     @Column(name = "sexo", nullable = false)
     private Sexo sexo;
 
     @Column(name = "castracao", nullable = false)
     private boolean castracao;
 
-    @OneToMany(mappedBy = "animais")
+    @ManyToMany()
+    @JoinTable(name = "animais_vacinas",
+            joinColumns = @JoinColumn(name = "id_animal"),
+            inverseJoinColumns = @JoinColumn(name = "id_vacina")
+    )
     private List<Vacina> vacinas;
 
     @Column(name = "data_acolhimento", nullable = false)
     private Date data_acolhimento;
 
-    @OneToOne(mappedBy = "animais")
+    @OneToOne(mappedBy = "animal")
     private Date data_adocao;
 
     //Construtor

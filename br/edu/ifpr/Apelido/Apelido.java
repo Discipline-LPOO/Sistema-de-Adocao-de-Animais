@@ -1,7 +1,13 @@
 package br.edu.ifpr.Apelido;
 
+import jakarta.persistence.*;
+
 public class Apelido {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
+
+    @ManyToMany()
     private String nome;
 
     //Construtor
