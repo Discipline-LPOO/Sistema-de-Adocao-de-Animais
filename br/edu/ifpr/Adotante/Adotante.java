@@ -5,9 +5,11 @@ import br.edu.ifpr.DocumentoIdentidade.DocumentoIdentidade;
 import br.edu.ifpr.DocumentoResidencia.DocumentoResidencia;
 
 import jakarta.persistence.*;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = "adotantes")
+@NoArgsConstructor
 public class Adotante {
 
     @Id

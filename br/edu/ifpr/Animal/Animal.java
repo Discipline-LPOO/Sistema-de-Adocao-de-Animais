@@ -7,9 +7,11 @@ import jakarta.persistence.*;
 // Importações do projeto
 import br.edu.ifpr.Especie.Especie;
 import br.edu.ifpr.Vacina.Vacina;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = "animais")
+@NoArgsConstructor
 public class Animal{
 
     @Id
@@ -43,13 +45,11 @@ public class Animal{
     @Column(name = "data_acolhimento", nullable = false)
     private Date data_acolhimento;
 
-    @OneToOne(mappedBy = "animal")
-    private Date data_adocao;
 
     //Construtor
     public Animal(int id, String nome, Date data_nasc, Especie especie,
                   Sexo sexo, List<Vacina> vacinas,
-                  Date data_acolhimento, Date data_doacao) {
+                  Date data_acolhimento) {
         this.id = id;
         this.nome = nome;
         this.data_nasc = data_nasc;
@@ -57,7 +57,6 @@ public class Animal{
         this.sexo = sexo;
         this.vacinas = vacinas;
         this.data_acolhimento = data_acolhimento;
-        this.data_adocao = data_doacao;
     }
 
     //Getters e Setters
@@ -123,14 +122,6 @@ public class Animal{
 
     public void setData_acolhimento(Date data_acolhimento) {
         this.data_acolhimento = data_acolhimento;
-    }
-
-    public Date getData_adocao() {
-        return data_adocao;
-    }
-
-    public void setData_adocao(Date data_adocao) {
-        this.data_adocao = data_adocao;
     }
 }
 

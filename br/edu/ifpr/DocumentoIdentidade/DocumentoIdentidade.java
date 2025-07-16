@@ -2,6 +2,7 @@ package br.edu.ifpr.DocumentoIdentidade;
 
 // Importações de biblioteca
 import jakarta.persistence.*;
+import lombok.NoArgsConstructor;
 
 import java.sql.Blob;
 
@@ -9,6 +10,7 @@ import java.sql.Blob;
 
 @Entity
 @Table(name="docs_identidade")
+@NoArgsConstructor
 public class DocumentoIdentidade {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -27,8 +29,6 @@ public class DocumentoIdentidade {
         this.tipo = tipo;
         this.numero = numero;
     }
-    
-    public DocumentoIdentidade() {}
 
     //Getters e Setters
     public int getId() {

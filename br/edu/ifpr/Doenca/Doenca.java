@@ -5,11 +5,25 @@ import java.util.List;
 
 // Importações de projeto
 import br.edu.ifpr.Apelido.Apelido;
+import br.edu.ifpr.Vacina.Vacina;
+import jakarta.persistence.*;
+import lombok.NoArgsConstructor;
 
+@Entity
+@Table(name = "doencas")
+@NoArgsConstructor
 public class Doenca {
+    @Id
     private int id;
+
+    @Column(length = 50, nullable = false)
     private String nome;
+
+    @ManyToMany(mappedBy = "doencas")
     private List<Apelido> apelidos;
+
+    @ManyToMany(mappedBy = "doencas")
+    private List<Vacina> vacinas;
 
     //Construtores
     public Doenca(int id, String nome, List<Apelido> apelidos) {

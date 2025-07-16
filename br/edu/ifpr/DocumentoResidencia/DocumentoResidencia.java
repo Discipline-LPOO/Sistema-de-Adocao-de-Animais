@@ -1,15 +1,23 @@
 package br.edu.ifpr.DocumentoResidencia;
 
 // Importação de bibliotecas
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
-import java.awt.Image;
 
+@Entity
+@Table(name = "docs_identidade")
 @AllArgsConstructor
+@NoArgsConstructor
 @Getter
 @Setter
 public class DocumentoResidencia {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
-    private Image arquivo;
+
+    @Column(length = 100, nullable = false)
+    private String arquivo;
 }
