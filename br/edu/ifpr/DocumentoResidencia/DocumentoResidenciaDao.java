@@ -1,4 +1,6 @@
 package br.edu.ifpr.DocumentoResidencia;
 
-public class DocumentoResidenciaDao {
+import br.edu.ifpr.Dao.Dao;
+
+public class DocumentoResidenciaDao extends Dao<DocumentoResidencia> {
 }
