@@ -2,15 +2,24 @@ package br.edu.ifpr.Especie;
 
 // Importações de biblioteca
 import java.util.List;
+import jakarta.persistence.*;
 import lombok.NoArgsConstructor;
 
 // Importações do projeto
 import br.edu.ifpr.Apelido.Apelido;
 
+@Entity
+@Table(name = "especies")
 @NoArgsConstructor
 public class Especie {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
+
+    @Column(length = 50, nullable = false)
     private String nome;
+
+    @ManyToMany(mappedBy = "especies")
     private List<Apelido> apelidos;
 
     //Construtor

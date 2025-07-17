@@ -1,4 +1,6 @@
 package br.edu.ifpr.DocumentoIdentidade;
 
-public class DocumentoIdentidadeDao {
+import br.edu.ifpr.Dao.Dao;
+
+public class DocumentoIdentidadeDao extends Dao<DocumentoIdentidade> {
 }
