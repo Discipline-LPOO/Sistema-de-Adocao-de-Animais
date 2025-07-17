@@ -1,14 +1,24 @@
 package br.edu.ifpr.DocumentoIdentidade;
 
 // Importações de biblioteca
-import java.sql.Blob;
+import jakarta.persistence.*;
+import lombok.NoArgsConstructor;
 
 // Importações de projeto
 
-
+@Entity
+@Table(name="docs_identidade")
+@NoArgsConstructor
 public class DocumentoIdentidade {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
+
+    @Enumerated(EnumType.STRING)
+    @Column(name = "tipo_documento", nullable = false)
     private TipoDocumento tipo;
+
+    @Column(name = "numero", length = 11, nullable = false)
     private String numero;
 
     //Construtor

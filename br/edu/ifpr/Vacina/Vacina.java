@@ -5,11 +5,28 @@ import java.util.List;
 
 // Importações do projeto
 import br.edu.ifpr.Doenca.Doenca;
+import jakarta.persistence.*;
+import lombok.NoArgsConstructor;
 
+@Entity
+@Table(name = "vacinas")
+@NoArgsConstructor
 public class Vacina {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
+
+    @Column(length = 45, nullable = false)
     private String nome;
+
+    @Column(length = 45, nullable = false)
     private String fabricante;
+
+    @ManyToMany
+    @JoinTable(name = "vacinas_doencas",
+            joinColumns = @JoinColumn(name = "id_vacina"),
+            inverseJoinColumns = @JoinColumn(name = "id_doenca")
+    )
     private List<Doenca> doencas;
 
     //Construtores
