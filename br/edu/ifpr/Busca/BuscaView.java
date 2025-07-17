@@ -22,7 +22,7 @@ public class BuscaView {
         panel.setLayout(new GridBagLayout());
         GridBagConstraints grid = new GridBagConstraints();
 
-        ImageIcon backImage = new ImageIcon("images/right-arrow.png");
+        ImageIcon backImage = new ImageIcon("br/edu/ifpr/resources/images/right-arrow.png");
         JButton back = new JButton(backImage);
         grid.gridx = 0;
         grid.gridy = 0;
