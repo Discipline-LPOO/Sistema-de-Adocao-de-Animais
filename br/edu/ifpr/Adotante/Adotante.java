@@ -11,7 +11,6 @@ import lombok.NoArgsConstructor;
 @Table(name = "adotantes")
 @NoArgsConstructor
 public class Adotante {
-
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
@@ -93,5 +92,13 @@ public class Adotante {
 
     public void setComprovanteEnd(DocumentoResidencia comprovanteEnd) {
         this.comprovanteEnd = comprovanteEnd;
+    }
+
+    public String getTelefone() {
+        return telefone;
+    }
+
+    public void setTelefone(String telefone) {
+        this.telefone = telefone;
     }
 }

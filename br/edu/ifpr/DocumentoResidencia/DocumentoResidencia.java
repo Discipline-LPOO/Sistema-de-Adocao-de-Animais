@@ -18,6 +18,6 @@ public class DocumentoResidencia {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
-    @Column(length = 100, nullable = false)
+    @Column(name= "caminho_arquivo", length = 100, nullable = false)
     private String arquivo;
 }

@@ -57,5 +57,21 @@ public class Apelido {
     public void setNome(String nome) {
         this.nome = nome;
     }
+
+    public List<Doenca> getDoencas() {
+        return doencas;
+    }
+
+    public void setDoencas(List<Doenca> doencas) {
+        this.doencas = doencas;
+    }
+
+    public List<Especie> getEspecies() {
+        return especies;
+    }
+
+    public void setEspecies(List<Especie> especies) {
+        this.especies = especies;
+    }
 }
     

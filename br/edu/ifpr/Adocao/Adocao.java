@@ -6,13 +6,19 @@ import br.edu.ifpr.Animal.Animal;
 
 // Importações de bibliotecas
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.util.Date;
 
 @Entity
 @Table(name = "adocoes")
 @NoArgsConstructor
+@AllArgsConstructor
+@Getter
+@Setter
 public class Adocao {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

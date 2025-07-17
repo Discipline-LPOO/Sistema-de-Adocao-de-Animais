@@ -56,4 +56,12 @@ public class Doenca {
     public void setApelidos(List<Apelido> apelidos) {
         this.apelidos = apelidos;
     }
+
+    public List<Vacina> getVacinas() {
+        return vacinas;
+    }
+
+    public void setVacinas(List<Vacina> vacinas) {
+        this.vacinas = vacinas;
+    }
 }
