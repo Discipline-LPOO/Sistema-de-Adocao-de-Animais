@@ -1,4 +1,6 @@
 package br.edu.ifpr.Apelido;
 
-public class ApelidoDao {
+import br.edu.ifpr.Dao.Dao;
+
+public class ApelidoDao extends Dao<Apelido> {
 }

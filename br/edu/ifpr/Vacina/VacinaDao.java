@@ -1,4 +1,6 @@
 package br.edu.ifpr.Vacina;
 
-public class VacinaDao {
+import br.edu.ifpr.Dao.Dao;
+
+public class VacinaDao extends Dao<Vacina>{
 }

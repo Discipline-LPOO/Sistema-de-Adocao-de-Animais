@@ -1,4 +1,6 @@
 package br.edu.ifpr.Animal;
 
-public class AnimalDao {
+import br.edu.ifpr.Dao.Dao;
+
+public class AnimalDao extends Dao<Animal> {
 }
