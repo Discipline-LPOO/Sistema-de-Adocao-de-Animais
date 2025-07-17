@@ -1,13 +1,13 @@
 package br.edu.ifpr.Busca;
 
+
 import javafx.fxml.FXML;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextArea;
 
 import br.edu.ifpr.Busca.BuscaService;
+import javafx.scene.control.TextField;
 
-// Adotante(nome do adotante, cpf do adotante)
-// Animal(nome do animal, data de acolhimento)
-// Adoção(data adoção, adotante, animal)
 
 public class BuscaController {
 
@@ -17,5 +17,19 @@ public class BuscaController {
     @FXML
     private ChoiceBox<String> buscaChoice;
 
+    private String textoBusca = buscaField.getText();
+    private String itemSelecionado = buscaChoice.getValue();
+
     private BuscaService buscaService = new BuscaService();
+
+
+    public void buscar(String textoBusca, String getItemSelecionado){
+        buscaService.buscar(textoBusca, getItemSelecionado);
+    }
+
+    @FXML
+    public void criarChoiceBox() {
+
+    }
+
 }
