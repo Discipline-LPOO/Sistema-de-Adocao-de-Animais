@@ -51,7 +51,7 @@
         </Label>
             <Label layoutX="121.0" layoutY="123.0" text="Texto:" />
             <TextField fx:id="buscaField" layoutX="167.0" layoutY="119.0" prefHeight="26.0" prefWidth="397.0" />
-            <ChoiceBox fx:id="buscaChoiche" layoutX="167.0" layoutY="187.0" prefHeight="26.0" prefWidth="194.0" />
+            <ChoiceBox fx:id="buscaChoice" layoutX="167.0" layoutY="187.0" prefHeight="26.0" prefWidth="194.0" />
             <Label layoutX="97.0" layoutY="191.0" text="Conteúdo:" />
             <Button layoutX="294.0" layoutY="313.0" mnemonicParsing="false" text="Buscar" />
             <Button fx:id="homeButton" layoutX="45.0" layoutY="39.0" mnemonicParsing="false" text="Button" />
