@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Sistema-de-br.edu.ifpr.Adocao.Adocao-de-Animais.iml" filepath="$PROJECT_DIR$/Sistema-de-br.edu.ifpr.Adocao.Adocao-de-Animais.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/Sistema-de-Adocao-de-Animais.iml" filepath="$PROJECT_DIR$/.idea/Sistema-de-Adocao-de-Animais.iml" />
     </modules>
   </component>
 </project>
