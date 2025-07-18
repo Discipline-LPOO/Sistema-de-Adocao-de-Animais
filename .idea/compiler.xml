@@ -7,7 +7,7 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="Sistema-de-Adocao-de-Animais" />
+        <module name="Sistema-de-br.edu.ifpr.Adocao.Adocao-de-Animais" />
       </profile>
     </annotationProcessing>
   </component>
