@@ -60,11 +60,11 @@
                   <Label layoutX="77.0" layoutY="71.0" text="Nome:" />
                   <TextField fx:id="cadastroNomeField" layoutX="113.0" layoutY="89.0" prefHeight="26.0" prefWidth="455.0" />
                   <Label layoutX="77.0" layoutY="142.0" text="CPF:" />
-                  <TextField fx:id="nascField" layoutX="95.0" layoutY="162.0" prefHeight="26.0" prefWidth="210.0" promptText="(apenas números)" />
+                  <TextField fx:id="cpfField" layoutX="95.0" layoutY="162.0" prefHeight="26.0" prefWidth="210.0" promptText="(apenas números)" />
                   <Label layoutX="77.0" layoutY="206.0" text="Telefone:" />
-                  <TextField fx:id="nascField1" layoutX="95.0" layoutY="226.0" prefHeight="26.0" prefWidth="210.0" promptText="(apenas números)" />
+                  <TextField fx:id="telefoneField" layoutX="95.0" layoutY="226.0" prefHeight="26.0" prefWidth="210.0" promptText="(apenas números)" />
                   <Label layoutX="77.0" layoutY="269.0" text="Endereço completo:" />
-                  <TextField fx:id="cadastroNomeField1" layoutX="113.0" layoutY="289.0" prefHeight="26.0" prefWidth="460.0" />
+                  <TextField fx:id="enderecoField" layoutX="113.0" layoutY="289.0" prefHeight="26.0" prefWidth="460.0" />
                   <Label layoutX="77.0" layoutY="332.0" text="Insira um comprovante de residência:" />
                   <Button layoutX="77.0" layoutY="357.0" mnemonicParsing="false" text="Inserir imagem" />
                   <Label layoutX="77.0" layoutY="416.0" text="Insira um documento de identidade:" />

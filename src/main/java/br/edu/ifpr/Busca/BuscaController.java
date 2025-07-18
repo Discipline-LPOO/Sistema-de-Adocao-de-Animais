@@ -3,13 +3,8 @@ package br.edu.ifpr.Busca;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.TextArea;
 
-import br.edu.ifpr.Busca.BuscaService;
 import javafx.scene.control.TextField;
-
-import java.util.List;
-
 
 public class BuscaController {
 
@@ -24,14 +19,13 @@ public class BuscaController {
 
     private BuscaService buscaService = new BuscaService();
 
-
-    public void buscar(String textoBusca, String getItemSelecionado){
-        buscaService.buscar(textoBusca, getItemSelecionado);
+    public void buscar(String textoBusca, String ItemSelecionado){
+        buscaService.buscar(textoBusca, ItemSelecionado);
     }
 
     @FXML
-    public void criarChoiceBox() {
-
+    public void initialize() {
+        buscaChoice.getItems().addAll(buscaService.itensChoicebox());
     }
 
 }
