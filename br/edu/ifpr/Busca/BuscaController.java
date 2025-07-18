@@ -8,6 +8,8 @@ import javafx.scene.control.TextArea;
 import br.edu.ifpr.Busca.BuscaService;
 import javafx.scene.control.TextField;
 
+import java.util.List;
+
 
 public class BuscaController {
 

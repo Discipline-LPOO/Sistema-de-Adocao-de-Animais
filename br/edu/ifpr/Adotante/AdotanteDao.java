@@ -17,16 +17,22 @@ SELECT o objeto "a" do tipo "Adotante" onde o nome for igual a ":nome"
 Basicamente, oq o model faz, é linkar as linhas das tabelas SQL para objetos em java
 "query.setParameter("name", textoBusca);" faz com que ":nome" seja o parâmetro que eu passei
 retorna a lista de adotantes (objetos)
+
+Deixei o nome da tabela igual ao do model pra n dar conflito
 */
     public static List<Adotante> selectPorNome(String textoBusca) {
         TypedQuery<Adotante> query = em.createQuery(
-                "SELECT a FROM Adotante WHERE a.nome = :nome", Adotante.class
+                "SELECT a FROM adotantes WHERE a.nome = :nome", Adotante.class
         );
-        query.setParameter("name", textoBusca);
+        query.setParameter("nome", textoBusca);
         return query.getResultList();
     }
 
-    public static void selectPorCPF(String textoBusca) {
-        ;
+    public static List<Adotante> selectPorCPF(String textoBusca) {
+        TypedQuery<Adotante> query = em.createQuery(
+                "SELECT a FROM adotantes WHERE a.cpf = :cpf", Adotante.class
+        );
+        query.setParameter("cpf", textoBusca);
+        return query.getResultList();
     }
 }

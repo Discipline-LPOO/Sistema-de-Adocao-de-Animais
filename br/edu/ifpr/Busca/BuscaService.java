@@ -1,33 +1,45 @@
 package br.edu.ifpr.Busca;
 
+import br.edu.ifpr.Adocao.Adocao;
 import br.edu.ifpr.Adocao.AdocaoDao;
+import br.edu.ifpr.Adotante.Adotante;
 import br.edu.ifpr.Adotante.AdotanteDao;
+import br.edu.ifpr.Animal.Animal;
 import br.edu.ifpr.Animal.AnimalDao;
 
-public class BuscaService {
+import java.util.List;
 
+public class BuscaService {
+// TODO -> Talvez transformar em string os returns???
     public void buscar(String textoBusca, String getItemSelecionado) {
         switch(getItemSelecionado) {
             case "Adotante: nome":
-                return AdotanteDao.selectPorNome(textoBusca);
+                List<Adotante> resultadoAdotanteNome = AdotanteDao.selectPorNome(textoBusca);
+                // Adicionar lógica para ligar com a tela de resultado dependendo da query.
                 break;
             case "Adotante: CPF":
-                return AdotanteDao.selectPorCPF(textoBusca);
+                List<Adotante> resultadoAdotanteCpf = AdotanteDao.selectPorCPF(textoBusca);
+                // Adicionar lógica para ligar com a tela de resultado dependendo da query.
                 break;
             case "Animal: nome":
-                return AnimalDao.selectPorNome(textoBusca);
+                List<Animal> resultadoAniNome = AnimalDao.selectPorNome(textoBusca);
+                // Adicionar lógica para ligar com a tela de resultado dependendo da query.
                 break;
             case "Animal: data acolhimento":
-                return AnimalDao.selectPorDataAcolhimento(textoBusca);
+                List<Animal> resultadoAniDataAcolhimento = AnimalDao.selectPorDataAcolhimento(textoBusca);
+                // Adicionar lógica para ligar com a tela de resultado dependendo da query.
                 break;
             case "Adoção: data adoção":
-                return AdocaoDao.selectPorDataAdocao(textoBusca);
+                List<Adocao> resultadoAdocaoData = AdocaoDao.selectPorDataAdocao(textoBusca);
+                // Adicionar lógica para ligar com a tela de resultado dependendo da query.
                 break;
             case "Adoção: nome adotante":
-                return AdocaoDao.selectPorNomeAdotante(textoBusca);
+                List<Adocao> resultadoAdocaoNomeAdotante = AdocaoDao.selectPorNomeAdotante(textoBusca);
+                // Adicionar lógica para ligar com a tela de resultado dependendo da query.
                 break;
             case "Adoção: nome animal":
-                return AdocaoDao.selectPorNomeAnimal(textoBusca);
+                List<Adocao> resultadoAdocaoNomeAnimal = AdocaoDao.selectPorNomeAnimal(textoBusca);
+                // Adicionar lógica para ligar com a tela de resultado dependendo da query.
                 break;
         }
 
