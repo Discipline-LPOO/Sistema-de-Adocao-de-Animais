@@ -1,4 +1,4 @@
-package br.edu.ifpr.Cadastro;
+package br.edu.ifpr.Vacina;
 
 // Importações do projeto
 import br.edu.ifpr.Doenca.Doenca;
@@ -7,19 +7,22 @@ import br.edu.ifpr.Doenca.DoencaService;
 
 
 // Importações de biblioteca
-import br.edu.ifpr.Vacina.Vacina;
-import br.edu.ifpr.Vacina.VacinaService;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.collections.FXCollections;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -35,6 +38,20 @@ public class VacinaController {
     @FXML
     private VBox cadastroContent;
 
+    public void iniciarTela(ActionEvent event){
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("CadastroVacina.fxml"));
+            Parent root = loader.load();
+            Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
 
     public List<String> listaDoencas(){
         return DoencaService.todasDoencas();
@@ -60,7 +77,7 @@ public class VacinaController {
         choicebox.getItems().addAll(listaDoencas());
 
         Button addDoenca = new Button("+" );
-        addDoenca.setOnAction(event -> {});
+        addDoenca.setOnAction(event -> adicionarDoenca());
 
         pane.getChildren().addAll(label, choicebox, addDoenca);
         cadastroContent.getChildren().add(pane);
@@ -74,8 +91,8 @@ public class VacinaController {
         contador++;
     }
 
-    public void cancelar(){
-
+    public void voltarInicio(){
+        System.out.println("Inicio");
     }
 
     public void cadastrarVacina(){
@@ -105,7 +122,7 @@ public class VacinaController {
         }
 
         reiniciarContador();
-        cancelar();
+        voltarInicio();
     }
 
 }
