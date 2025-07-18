@@ -9,4 +9,7 @@ module br.edu.ifpr {
 
     opens br.edu.ifpr to javafx.fxml;
     exports br.edu.ifpr;
+
+    opens br.edu.ifpr.menu to javafx.fxml;
+    exports br.edu.ifpr.menu;
 }

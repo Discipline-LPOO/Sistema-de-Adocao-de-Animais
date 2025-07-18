@@ -6,7 +6,7 @@
 
     <persistence-unit name="Banco de Dados Animais">
         <!--Informar entidades do projeto aqui-->
-        <class>br.edu.ifpr.Adotante.Adotante</class>
+        <class>br.edu.ifpr.adotante.Adotante</class>
 
         <!--PLACEHOLDER - Informar dados corretos do nosso banco de dados futuramente -->
         <properties>
