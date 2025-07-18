@@ -22,7 +22,7 @@ public class DocumentoIdentidade {
     private String numero;
 
     //Construtor
-    public DocumentoIdentidade(int id, TipoDocumento tipo, String numero, Blob arquivo) {
+    public DocumentoIdentidade(int id, TipoDocumento tipo, String numero) {
         this.id = id;
         this.tipo = tipo;
         this.numero = numero;
