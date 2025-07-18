@@ -42,7 +42,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.edu.ifpr.Cadastro.CadastroVacinaController">
+<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.edu.ifpr.Cadastro.VacinaController">
   <children>
     <AnchorPane VBox.vgrow="ALWAYS">
          <children>
@@ -87,8 +87,8 @@
                               </VBox>
                               <Pane fx:id="cadastroFooter" prefHeight="62.0" prefWidth="652.0">
                                  <children>
-                                    <Button fx:id="cancelButton" layoutX="98.0" layoutY="21.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="166.0" text="Cancelar" />
-                                    <Button fx:id="registerButton" layoutX="424.0" layoutY="21.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="150.0" text="Cadastrar" />
+                                    <Button fx:id="cancelButton" layoutX="98.0" layoutY="21.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="166.0" text="Cancelar" onAction="#cancelar" />
+                                    <Button fx:id="registerButton" layoutX="424.0" layoutY="21.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="150.0" text="Cadastrar" onAction="#cadastrarVacina" />
                                  </children>
                               </Pane>
                            </children>

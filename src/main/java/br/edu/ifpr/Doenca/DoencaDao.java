@@ -10,11 +10,13 @@ public class DoencaDao extends Dao<Doenca>{
 
 
     public List<Doenca> todasDoencas(){
-        List<Doenca> doencas = new ArrayList<>();
-        String sql = "SELECT nome from doenca";
-        Query query = em.createNativeQuery(sql);
-        doencas.addAll(query.getResultList());
-        return doencas;
+        String jpql = "SELECT d FROM Doenca d";
+        return em.createQuery(jpql, Doenca.class).getResultList();
+    }
+
+    public Doenca buscaPorNome(String nome){
+        String jpql = "SELECT d FROM Doenca d WHERE d.nome LIKE :nome";
+        return em.createQuery(jpql, Doenca.class).setParameter("nome", nome).getSingleResult();
     }
 
 }
