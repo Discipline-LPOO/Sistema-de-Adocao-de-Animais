@@ -7,7 +7,7 @@ import jakarta.persistence.Persistence;
 public class Dao<Object> {
 
     private static Dao instance;
-    protected EntityManager em;
+    protected static EntityManager em;
 
     // Construtor de classe
     protected Dao() {
