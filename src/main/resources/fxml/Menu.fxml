@@ -32,14 +32,12 @@
   OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 -->
 
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.*?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Font?>
-
+<?import javafx.scene.text.*?>
 <VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.edu.ifpr.Menu.MenuController">
   <children>
     <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
@@ -87,7 +85,7 @@
             <Separator layoutX="207.0" layoutY="14.0" orientation="VERTICAL" prefHeight="378.0" prefWidth="8.0" />
             <ImageView fitHeight="378.0" fitWidth="410.0" layoutX="224.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../images/—Pngtree—inspiration%20pet%20shop%20clinic%20home_5229325.png" />
+                  <Image/>
                </image>
             </ImageView>
             <Label layoutX="283.0" layoutY="83.0" text="Sistema de Adoção de Animais">
