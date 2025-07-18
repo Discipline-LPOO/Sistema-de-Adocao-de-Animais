@@ -81,11 +81,20 @@
                 <execution>
                     <id>default-cli</id>
                     <configuration>
-                        <mainClass>br.edu.ifpr.Menu.MenuView</mainClass> </configuration>
+                        <mainClass>br.edu.ifpr.menu.MenuView</mainClass> </configuration>
                 </execution>
             </executions>
             </plugin>
         </plugins>
+
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <includes>
+                    <include>**/*</include>
+                </includes>
+            </resource>
+        </resources>
     </build>
     
 </project>
