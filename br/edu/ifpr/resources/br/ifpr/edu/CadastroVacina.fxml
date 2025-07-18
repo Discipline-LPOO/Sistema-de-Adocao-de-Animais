@@ -42,7 +42,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.edu.ifpr.Cadastro.CadastroVacinaController">
   <children>
     <AnchorPane VBox.vgrow="ALWAYS">
          <children>
@@ -80,7 +80,7 @@
                                        <children>
                                           <Label layoutX="75.0" layoutY="9.0" text="Doença:" />
                                           <ChoiceBox layoutX="118.0" layoutY="31.0" prefHeight="25.0" prefWidth="302.0" />
-                                          <Button fx:id="addDoencaButton" layoutX="540.0" layoutY="30.0" mnemonicParsing="false" text="+" />
+                                          <Button fx:id="addDoencaButton" layoutX="540.0" layoutY="30.0" mnemonicParsing="false" text="+" onAction="#adicionarDoenca" />
                                        </children>
                                     </Pane>
                                  </children>
