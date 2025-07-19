@@ -22,8 +22,8 @@ public class ApelidoDao extends Dao<Apelido> {
     }
 
     public Apelido buscarPorNome(String nome){
-        String jpql = "SELECT a FROM Apelido a WHERE nome LIKE :nome";
-        return em.createQuery(jpql, Apelido.class).getSingleResult();
+        String jpql = "SELECT a FROM Apelido a WHERE nome = :nome";
+        return em.createQuery(jpql, Apelido.class).setParameter("nome", nome).getSingleResult();
     }
 
 }

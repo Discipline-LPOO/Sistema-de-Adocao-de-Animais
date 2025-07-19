@@ -53,6 +53,12 @@ public class ApelidoService {
         return dao.buscarPorNome(nomeField);
     }
 
+    public static void adicionarApelido(String nomeField){
+        Apelido apelido = new Apelido();
+        apelido.setNome(nomeField);
+        adicionarApelido(apelido);
+    }
+
     public static void adicionarApelido(Apelido apelido){
         dao.salvar(apelido);
     }
