@@ -40,11 +40,11 @@ public class VacinaController implements Initializable {
     private VBox cadastroContent;
 
     @FXML
-    private ChoiceBox doencaChoice;
+    private ChoiceBox doencaChoice1;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle){
-        doencaChoice.setItems(listaDoencas());
+        doencaChoice1.setItems(listaDoencas());
     }
 
     public ObservableList<String> listaDoencas(){
@@ -70,6 +70,7 @@ public class VacinaController implements Initializable {
         choicebox.setLayoutY(Double.parseDouble("31.0"));
         choicebox.setPrefHeight(Double.parseDouble("25.0"));
         choicebox.setPrefWidth(Double.parseDouble("302.0"));
+        choicebox.setId(("doencaChoice" + Integer.toString(contador)));
         choicebox.setItems(listaDoencas());
 
         Button addDoenca = new Button("+" );
@@ -105,36 +106,47 @@ public class VacinaController implements Initializable {
 
     public void cadastrarVacina(ActionEvent event){
         ObservableList<Node> children = cadastroContent.getChildren();
-        List<Doenca> inputs = new ArrayList<>();
+        List<Doenca> doencas = new ArrayList<>();
 
         // Loop para capturar objetos de todos os campos gerados
         for (int i = 0; i < children.size(); i++) {
             Node node = children.get(i);
             String id = node.getId();
 
-            if(id.contains("doenca") && node instanceof ChoiceBox){
-                String text = ((ChoiceBox<String>) node).getValue();
-                inputs.add(DoencaService.doencaPorNome(text));
+            if(id.contains("doenca")){
+                String choiceId = "#doencaChoice" + id.substring(id.length()-1);
+                ChoiceBox<String> choicebox = ((ChoiceBox<String>) node.lookup(choiceId));
+                String text = choicebox.getValue();
+
+                if (text != null) {
+                    doencas.add(DoencaService.doencaPorNome(text));
+                }
             }
         }
 
         // Elimina duplicações
-        Set<Doenca> set = new HashSet<>(inputs);
-        List<Doenca> doencas = new ArrayList<>(set);
+        Set<Doenca> set = new HashSet<>(doencas);
+        doencas = new ArrayList<>(set);
 
         String nome = nomeVacina.getText();
         String fabricante = cadastroFabricante.getText();
 
-        if (!service.existe(nome, fabricante)) {
+        if (service.existe(nome, fabricante)) {
+            Vacina vacina = service.buscarPorNome(nome, fabricante);
+            List<Doenca> doencasCadastradas = vacina.getDoencas();
+            doencasCadastradas.addAll(doencas);
+            vacina.setDoencas(doencasCadastradas);
+            System.out.println(doencasCadastradas);
+            service.atualizarVacina(vacina);
+        }
+        else {
             Vacina vacina = new Vacina();
             vacina.setNome(nome);
             vacina.setFabricante(fabricante);
             vacina.setDoencas(doencas);
             service.adicionarVacina(vacina);
-            System.out.println("Vacina adicionada com sucesso!");
         }
 
-        System.out.println("Ou não adicionou ou ja acabou hihi!");
         reiniciarContador();
         voltarInicio(event);
     }

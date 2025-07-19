@@ -13,7 +13,7 @@ import java.util.List;
 @NoArgsConstructor
 public class Especie {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id_especie;
 
     @Column(length = 50, nullable = false)

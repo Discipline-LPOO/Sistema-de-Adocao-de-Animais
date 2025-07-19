@@ -22,7 +22,7 @@ public class Vacina {
     @Column(length = 45, nullable = false)
     private String fabricante;
 
-    @ManyToMany
+    @ManyToMany(cascade = {CascadeType.MERGE})
     @JoinTable(name = "vacinas_doencas",
             joinColumns = @JoinColumn(name = "id_vacina"),
             inverseJoinColumns = @JoinColumn(name = "id_doenca")

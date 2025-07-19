@@ -22,4 +22,8 @@ public class VacinaService {
     public void adicionarVacina(Vacina vacina) {
         dao.salvar(vacina);
     }
+
+    public void atualizarVacina(Vacina vacina){
+        dao.atualizar(vacina);
+    }
 }

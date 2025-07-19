@@ -20,7 +20,7 @@ import java.util.Date;
 @Setter
 public class Adocao {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id_adocao;
 
     @Column(name = "data_adocao", nullable = false)

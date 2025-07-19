@@ -76,11 +76,11 @@
                                           <TextField fx:id="cadastroFabricante" layoutX="110.0" layoutY="29.0" prefHeight="26.0" prefWidth="455.0" />
                                        </children>
                                     </Pane>
-                                    <Pane fx:id="doencaPane" prefHeight="70.0" prefWidth="652.0">
+                                    <Pane fx:id="doencaPane1" prefHeight="70.0" prefWidth="652.0">
                                        <children>
                                           <Label layoutX="75.0" layoutY="9.0" text="Doença:" />
-                                          <ChoiceBox fx:id="doencaChoice" layoutX="118.0" layoutY="31.0" prefHeight="25.0" prefWidth="302.0" />
-                                          <Button fx:id="addDoencaButton" layoutX="540.0" layoutY="30.0" mnemonicParsing="false" onAction="#adicionarDoenca" text="+" />
+                                          <ChoiceBox fx:id="doencaChoice1" layoutX="118.0" layoutY="31.0" prefHeight="25.0" prefWidth="302.0" />
+                                          <Button layoutX="540.0" layoutY="30.0" mnemonicParsing="false" onAction="#adicionarDoenca" text="+" />
                                        </children>
                                     </Pane>
                                  </children>

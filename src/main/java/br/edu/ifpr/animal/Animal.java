@@ -15,7 +15,7 @@ import java.util.List;
 @NoArgsConstructor
 public class Animal{
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id_animal;
 
     @Column(name= "nome", length = 45, nullable = false)
