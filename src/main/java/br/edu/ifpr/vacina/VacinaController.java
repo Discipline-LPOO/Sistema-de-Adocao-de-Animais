@@ -54,7 +54,7 @@ public class VacinaController implements Initializable {
     }
 
     public void adicionarDoenca(){
-        incrementarContador();
+        contador++;
 
         Pane pane = new Pane();
         pane.setId(("doencaPane" + Integer.toString(contador)));
@@ -86,12 +86,9 @@ public class VacinaController implements Initializable {
         contador = 1;
     }
 
-    public void incrementarContador(){
-        contador++;
-    }
-
     public void voltarInicio(ActionEvent event){
         try {
+            reiniciarContador();
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/Menu.fxml"));
             Parent root = loader.load();
             Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();

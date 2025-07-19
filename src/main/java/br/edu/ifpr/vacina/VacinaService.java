@@ -7,7 +7,6 @@ public class VacinaService {
     public static boolean existe(String nome, String fabricante){
         try{
             Vacina vacina = buscarPorNome(nome, fabricante);
-            System.out.println(vacina);
         }
         catch(Exception NoResultException){
             return false;

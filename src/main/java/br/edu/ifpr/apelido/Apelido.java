@@ -20,14 +20,14 @@ public class Apelido {
     @Column(length = 50, nullable = false)
     private String nome;
 
-    @ManyToMany()
+    @ManyToMany(cascade = CascadeType.MERGE)
     @JoinTable(name = "apelidos_doencas",
             joinColumns = @JoinColumn(name = "id_apelido"),
             inverseJoinColumns = @JoinColumn(name = "id_doenca")
     )
     private List<Doenca> doencas;
 
-    @ManyToMany()
+    @ManyToMany(cascade = CascadeType.MERGE)
     @JoinTable(name = "apelidos_especies",
             joinColumns = @JoinColumn(name = "id_apelido"),
             inverseJoinColumns = @JoinColumn(name = "id_especie")
