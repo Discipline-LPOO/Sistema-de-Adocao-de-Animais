@@ -4,6 +4,7 @@ package br.edu.ifpr.vacina;
 
 import br.edu.ifpr.doenca.Doenca;
 import br.edu.ifpr.doenca.DoencaService;
+import br.edu.ifpr.menu.MenuController;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -35,21 +36,13 @@ public class VacinaController {
     @FXML
     private VBox cadastroContent;
 
-    public void iniciarTela(ActionEvent event){
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("CadastroVacina.fxml"));
-            Parent root = loader.load();
-            Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-            Scene scene = new Scene(root);
-            stage.setScene(scene);
-            stage.show();
 
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
+    @FXML
+    private ChoiceBox<String> doencaChoice;
 
+    public VacinaController(){
+        doencaChoice.setItems((ObservableList) listaDoencas());
     }
-
     public List<String> listaDoencas(){
         return DoencaService.todasDoencas();
     }
@@ -71,9 +64,10 @@ public class VacinaController {
         choicebox.setLayoutY(Double.parseDouble("31.0"));
         choicebox.setPrefHeight(Double.parseDouble("25.0"));
         choicebox.setPrefWidth(Double.parseDouble("302.0"));
-        choicebox.getItems().addAll(listaDoencas());
 
         Button addDoenca = new Button("+" );
+        addDoenca.setLayoutX(Double.parseDouble("540.0"));
+        addDoenca.setLayoutY(Double.parseDouble("30.0"));
         addDoenca.setOnAction(event -> adicionarDoenca());
 
         pane.getChildren().addAll(label, choicebox, addDoenca);
@@ -88,8 +82,18 @@ public class VacinaController {
         contador++;
     }
 
-    public void voltarInicio(){
-        System.out.println("Inicio");
+    public void voltarInicio(ActionEvent event){
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/Menu.fxml"));
+            Parent root = loader.load();
+            Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     public void cadastrarVacina(){
@@ -119,7 +123,6 @@ public class VacinaController {
         }
 
         reiniciarContador();
-        voltarInicio();
     }
 
 }
