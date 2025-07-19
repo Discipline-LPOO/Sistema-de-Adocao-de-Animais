@@ -15,7 +15,7 @@ public class Dao<Object> {
     }
 
     private EntityManager getEntityManager() {
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("Banco de Dados Animais");
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("adocao_de_animais");
         if (em == null) {
             em = getEntityManager();
         }

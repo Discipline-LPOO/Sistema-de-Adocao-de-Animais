@@ -4,16 +4,24 @@
              xsi:schemaLocation="https://jakarta.ee/xml/ns/persistence https://jakarta.ee/xml/ns/persistence/persistence_3_0.xsd"
              version="3.0">
 
-    <persistence-unit name="Banco de Dados Animais">
+    <persistence-unit name="adocao_de_animais">
         <!--Informar entidades do projeto aqui-->
         <class>br.edu.ifpr.adotante.Adotante</class>
+        <class>br.edu.ifpr.adocao.Adocao</class>
+        <class>br.edu.ifpr.animal.Animal</class>
+        <class>br.edu.ifpr.apelido.Apelido</class>
+        <class>br.edu.ifpr.documentoIdentidade.DocumentoIdentidade</class>
+        <class>br.edu.ifpr.documentoResidencia.DocumentoResidencia</class>
+        <class>br.edu.ifpr.doenca.Doenca</class>
+        <class>br.edu.ifpr.especie.Especie</class>
+        <class>br.edu.ifpr.vacina.Vacina</class>
 
         <!--PLACEHOLDER - Informar dados corretos do nosso banco de dados futuramente -->
         <properties>
-            <property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver" />
-            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost/projeto_jpa?useTimezone=true&amp;serverTimezone=UTC" />
-            <property name="javax.persistence.jdbc.user" value="root" />
-            <property name="javax.persistence.jdbc.password" value="minhaSenha" />
+            <property name="jakarta.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver" />
+            <property name="jakarta.persistence.jdbc.url" value="jdbc:mysql://localhost/adocao_de_animais?useTimezone=true&amp;serverTimezone=UTC" />
+            <property name="jakarta.persistence.jdbc.user" value="root" />
+            <property name="jakarta.persistence.jdbc.password" value="root" />
 
             <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL8Dialect" />
             <property name="hibernate.show_sql" value="true" />
