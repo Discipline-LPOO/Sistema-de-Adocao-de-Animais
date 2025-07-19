@@ -24,22 +24,22 @@ public class MenuController {
 
         switch (labelId) {
             case "buscaLabel":
-                fxmlPath = "/br/edu/ifpr/busca/Busca.fxml";
+                fxmlPath = "/fxml/Busca.fxml";
                 break;
             case "adocaoLabel":
-                fxmlPath = "/br/edu/ifpr/adocao/NovaAdocao.fxml";
+                fxmlPath = "/fxml/NovaAdocao.fxml";
                 break;
             case "animalLabel":
-                fxmlPath = "/br/edu/ifpr/animal/CadastroAnimal.fxml";
+                fxmlPath = "/fxml/CadastroAnimal.fxml";
                 break;
             case "adotanteLabel":
-                fxmlPath = "/br/edu/ifpr/adotante/CadastroAdotante.fxml";
+                fxmlPath = "/fxml/CadastroAdotante.fxml";
                 break;
             case "vacinaLabel":
-                fxmlPath = "/br/edu/ifpr/vacina/CadastroVacina.fxml";
+                fxmlPath = "/fxml/CadastroVacina.fxml";
                 break;
             case "doencaLabel":
-                fxmlPath = "/br/edu/ifpr/doenca/CadastroDoenca.fxml";
+                fxmlPath = "/fxml/CadastroDoenca.fxml";
                 break;
             default:
                 System.out.println("Nenhuma ação definida");
@@ -59,4 +59,9 @@ public class MenuController {
             e.printStackTrace();
         }
     }
+
+    public void menu() {
+        abrirTela("/fxml/menu.fxml");
+    }
+
 }

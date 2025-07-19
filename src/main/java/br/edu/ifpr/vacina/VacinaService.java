@@ -6,7 +6,8 @@ public class VacinaService {
 
     public static boolean existe(String nome, String fabricante){
         try{
-            Vacina vacina = dao.buscarVacinaPorNomeFabricante(nome, fabricante);
+            Vacina vacina = buscarPorNome(nome, fabricante);
+            System.out.println(vacina);
         }
         catch(Exception NoResultException){
             return false;
@@ -14,7 +15,11 @@ public class VacinaService {
         return true;
     }
 
-    public static void adicionarVacina(Vacina vacina) {
+    public static Vacina buscarPorNome(String nome, String fabricante){
+        return dao.buscarVacinaPorNomeFabricante(nome, fabricante);
+    }
+
+    public void adicionarVacina(Vacina vacina) {
         dao.salvar(vacina);
     }
 }

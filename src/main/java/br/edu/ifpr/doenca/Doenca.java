@@ -15,7 +15,7 @@ import java.util.List;
 public class Doenca {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
+    private int id_doenca;
 
     @Column(length = 50, nullable = false)
     private String nome;
@@ -28,18 +28,18 @@ public class Doenca {
 
     //Construtores
     public Doenca(int id, String nome, List<Apelido> apelidos) {
-        this.id = id;
+        this.id_doenca = id;
         this.nome = nome;
         this.apelidos = apelidos;
     }
 
     //Getters e Setters
     public int getId() {
-        return id;
+        return id_doenca;
     }
 
     public void setId(int id) {
-        this.id = id;
+        this.id_doenca = id;
     }
 
     public String getNome() {

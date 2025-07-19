@@ -14,7 +14,7 @@ import java.util.List;
 public class Especie {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
+    private int id_especie;
 
     @Column(length = 50, nullable = false)
     private String nome;
@@ -24,18 +24,18 @@ public class Especie {
 
     //Construtor
     public Especie(int id, String nome, List<Apelido> apelidos) {
-        this.id = id;
+        this.id_especie = id;
         this.nome = nome;
         this.apelidos = apelidos;
     }
 
     //Getters e Setters
     public int getId() {
-        return id;
+        return id_especie;
     }
 
     public void setId(int id) {
-        this.id = id;
+        this.id_especie = id;
     }
 
     public String getNome() {

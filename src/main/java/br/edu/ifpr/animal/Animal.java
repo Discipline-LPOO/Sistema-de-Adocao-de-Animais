@@ -16,7 +16,7 @@ import java.util.List;
 public class Animal{
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
+    private int id_animal;
 
     @Column(name= "nome", length = 45, nullable = false)
     private String nome;
@@ -50,7 +50,7 @@ public class Animal{
     public Animal(int id, String nome, Date data_nasc, Especie especie,
                   Sexo sexo, List<Vacina> vacinas,
                   Date data_acolhimento) {
-        this.id = id;
+        this.id_animal = id;
         this.nome = nome;
         this.data_nasc = data_nasc;
         this.especie = especie;
@@ -61,11 +61,11 @@ public class Animal{
 
     //Getters e Setters
     public int getId() {
-        return id;
+        return id_animal;
     }
 
     public void setId(int id) {
-        this.id = id;
+        this.id_animal = id;
     }
 
     public String getNome() {
