@@ -14,20 +14,20 @@ import java.util.List;
 @NoArgsConstructor
 public class Apelido {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id_apelido;
 
     @Column(length = 50, nullable = false)
     private String nome;
 
-    @ManyToMany()
+    @ManyToMany(cascade = CascadeType.MERGE)
     @JoinTable(name = "apelidos_doencas",
             joinColumns = @JoinColumn(name = "id_apelido"),
             inverseJoinColumns = @JoinColumn(name = "id_doenca")
     )
     private List<Doenca> doencas;
 
-    @ManyToMany()
+    @ManyToMany(cascade = CascadeType.MERGE)
     @JoinTable(name = "apelidos_especies",
             joinColumns = @JoinColumn(name = "id_apelido"),
             inverseJoinColumns = @JoinColumn(name = "id_especie")
@@ -36,17 +36,17 @@ public class Apelido {
 
     //Construtor
     public Apelido(int id, String nome) {
-        this.id = id;
+        this.id_apelido = id;
         this.nome = nome;
     }
 
     //Getters e Setters
     public int getId() {
-        return id;
+        return id_apelido;
     }
 
     public void setId(int id) {
-        this.id = id;
+        this.id_apelido = id;
     }
 
     public String getNome() {

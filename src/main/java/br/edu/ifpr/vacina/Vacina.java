@@ -13,8 +13,8 @@ import java.util.List;
 @NoArgsConstructor
 public class Vacina {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id_vacina;
 
     @Column(length = 45, nullable = false)
     private String nome;
@@ -22,7 +22,7 @@ public class Vacina {
     @Column(length = 45, nullable = false)
     private String fabricante;
 
-    @ManyToMany
+    @ManyToMany(cascade = {CascadeType.MERGE})
     @JoinTable(name = "vacinas_doencas",
             joinColumns = @JoinColumn(name = "id_vacina"),
             inverseJoinColumns = @JoinColumn(name = "id_doenca")
@@ -31,18 +31,18 @@ public class Vacina {
 
     //Construtores
     public Vacina(int id, String nome, String fabricante, List<Doenca> Doenca) {
-        this.id = id;
+        this.id_vacina = id;
         this.nome = nome;
         this.fabricante = fabricante;
         this.doencas = doencas;
 }
     //Getters e Setters
     public int getId() {
-        return id;
+        return id_vacina;
     }
 
     public void setId(int id){
-        this.id = id;
+        this.id_vacina = id;
     }
 
     public String getNome() {

@@ -12,8 +12,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class Adotante {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id_adotante;
 
     @Column(name = "nome", length = 45, nullable = false)
     private String nome;
@@ -36,7 +36,7 @@ public class Adotante {
     //Construtor
     public Adotante(int id, String nome, String cpf, DocumentoIdentidade docID, String endereco, DocumentoResidencia
         comprovanteEnd, String telefone) {
-        this.id = id;
+        this.id_adotante = id;
         this.nome = nome;
         this.cpf = cpf;
         this.docID = docID;
@@ -47,11 +47,11 @@ public class Adotante {
 
     //Getters e Setters
     public int getId() {
-        return id;
+        return id_adotante;
     }
 
     public void setId(int id) {
-        this.id = id;
+        this.id_adotante = id;
     }
 
     public String getNome() {

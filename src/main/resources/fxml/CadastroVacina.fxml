@@ -32,9 +32,16 @@
   OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 -->
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
+
 <VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.edu.ifpr.vacina.VacinaController">
   <children>
     <AnchorPane VBox.vgrow="ALWAYS">
@@ -43,11 +50,11 @@
               <content>
                 <AnchorPane minWidth="0.0" prefHeight="500.0" prefWidth="642.0">
                      <children>
-                        <VBox fx:id="cadastroVBox" layoutX="-5.0" prefHeight="900.0" prefWidth="652.0">
+                        <VBox fx:id="cadastroVBox" layoutX="-5.0" prefWidth="652.0">
                            <children>
                               <Pane fx:id="cadastroHeader" prefHeight="71.0" prefWidth="640.0">
                                  <children>
-                                    <Button fx:id="homeButton" layoutX="40.0" layoutY="23.0" mnemonicParsing="false" text="Button" />
+                                    <Button fx:id="homeButton" layoutX="40.0" layoutY="23.0" mnemonicParsing="false" onAction="#voltarInicio" text="Button" />
                                     <Label fx:id="cadastroTitle" layoutX="247.0" layoutY="22.0" text="Cadastro de vacina">
                                        <font>
                                           <Font size="18.0" />
@@ -55,7 +62,7 @@
                                     </Label>
                                  </children>
                               </Pane>
-                              <VBox fx:id="cadastroContent" prefHeight="239.0" prefWidth="652.0">
+                              <VBox fx:id="cadastroContent" VBox.vgrow="ALWAYS">
                                  <children>
                                     <Pane fx:id="nomePane" prefHeight="72.0" prefWidth="652.0">
                                        <children>
@@ -69,19 +76,19 @@
                                           <TextField fx:id="cadastroFabricante" layoutX="110.0" layoutY="29.0" prefHeight="26.0" prefWidth="455.0" />
                                        </children>
                                     </Pane>
-                                    <Pane fx:id="doencaPane" prefHeight="70.0" prefWidth="652.0">
+                                    <Pane fx:id="doencaPane1" prefHeight="70.0" prefWidth="652.0">
                                        <children>
                                           <Label layoutX="75.0" layoutY="9.0" text="Doença:" />
-                                          <ChoiceBox layoutX="118.0" layoutY="31.0" prefHeight="25.0" prefWidth="302.0" />
-                                          <Button fx:id="addDoencaButton" layoutX="540.0" layoutY="30.0" mnemonicParsing="false" text="+" onAction="#adicionarDoenca" />
+                                          <ChoiceBox fx:id="doencaChoice1" layoutX="118.0" layoutY="31.0" prefHeight="25.0" prefWidth="302.0" />
+                                          <Button layoutX="540.0" layoutY="30.0" mnemonicParsing="false" onAction="#adicionarDoenca" text="+" />
                                        </children>
                                     </Pane>
                                  </children>
                               </VBox>
                               <Pane fx:id="cadastroFooter" prefHeight="62.0" prefWidth="652.0">
                                  <children>
-                                    <Button fx:id="cancelButton" layoutX="98.0" layoutY="21.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="166.0" text="Cancelar" onAction="#voltarInicio" />
-                                    <Button fx:id="registerButton" layoutX="424.0" layoutY="21.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="150.0" text="Cadastrar" onAction="#cadastrarVacina" />
+                                    <Button fx:id="cancelButton" layoutX="98.0" layoutY="21.0" mnemonicParsing="false" onAction="#voltarInicio" prefHeight="25.0" prefWidth="166.0" text="Cancelar" />
+                                    <Button fx:id="registerButton" layoutX="424.0" layoutY="21.0" mnemonicParsing="false" onAction="#cadastrarVacina" prefHeight="25.0" prefWidth="150.0" text="Cadastrar" />
                                  </children>
                               </Pane>
                            </children>

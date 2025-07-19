@@ -11,8 +11,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class DocumentoIdentidade {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id_doc_identidade;
 
     @Enumerated(EnumType.STRING)
     @Column(name = "tipo_documento", nullable = false)
@@ -23,18 +23,18 @@ public class DocumentoIdentidade {
 
     //Construtor
     public DocumentoIdentidade(int id, TipoDocumento tipo, String numero) {
-        this.id = id;
+        this.id_doc_identidade = id;
         this.tipo = tipo;
         this.numero = numero;
     }
 
     //Getters e Setters
     public int getId() {
-        return id;
+        return id_doc_identidade;
     }
 
     public void setId(int id) {
-        this.id = id;
+        this.id_doc_identidade = id;
     }
 
     public TipoDocumento getTipo() {

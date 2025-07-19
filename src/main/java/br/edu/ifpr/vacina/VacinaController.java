@@ -4,10 +4,12 @@ package br.edu.ifpr.vacina;
 
 import br.edu.ifpr.doenca.Doenca;
 import br.edu.ifpr.doenca.DoencaService;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -20,11 +22,13 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
+import java.net.URL;
+import java.util.*;
 
-public class VacinaController {
+public class VacinaController implements Initializable {
     private static int contador = 1;
+
+    private VacinaService service = new VacinaService();
 
     @FXML
     private TextField nomeVacina;
@@ -35,27 +39,22 @@ public class VacinaController {
     @FXML
     private VBox cadastroContent;
 
-    public void iniciarTela(ActionEvent event){
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("CadastroVacina.fxml"));
-            Parent root = loader.load();
-            Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-            Scene scene = new Scene(root);
-            stage.setScene(scene);
-            stage.show();
+    @FXML
+    private ChoiceBox doencaChoice1;
 
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle){
+        doencaChoice1.setItems(listaDoencas());
     }
 
-    public List<String> listaDoencas(){
-        return DoencaService.todasDoencas();
+    public ObservableList<String> listaDoencas(){
+        List<String> listaDoencas = DoencaService.todasDoencas();
+        ObservableList<String> observableList = FXCollections.observableArrayList(listaDoencas);
+        return observableList;
     }
 
     public void adicionarDoenca(){
-        incrementarContador();
+        contador++;
 
         Pane pane = new Pane();
         pane.setId(("doencaPane" + Integer.toString(contador)));
@@ -71,9 +70,12 @@ public class VacinaController {
         choicebox.setLayoutY(Double.parseDouble("31.0"));
         choicebox.setPrefHeight(Double.parseDouble("25.0"));
         choicebox.setPrefWidth(Double.parseDouble("302.0"));
-        choicebox.getItems().addAll(listaDoencas());
+        choicebox.setId(("doencaChoice" + Integer.toString(contador)));
+        choicebox.setItems(listaDoencas());
 
         Button addDoenca = new Button("+" );
+        addDoenca.setLayoutX(Double.parseDouble("540.0"));
+        addDoenca.setLayoutY(Double.parseDouble("30.0"));
         addDoenca.setOnAction(event -> adicionarDoenca());
 
         pane.getChildren().addAll(label, choicebox, addDoenca);
@@ -84,42 +86,66 @@ public class VacinaController {
         contador = 1;
     }
 
-    public void incrementarContador(){
-        contador++;
+    public void voltarInicio(ActionEvent event){
+        try {
+            reiniciarContador();
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/Menu.fxml"));
+            Parent root = loader.load();
+            Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
-    public void voltarInicio(){
-        System.out.println("Inicio");
-    }
-
-    public void cadastrarVacina(){
+    public void cadastrarVacina(ActionEvent event){
         ObservableList<Node> children = cadastroContent.getChildren();
         List<Doenca> doencas = new ArrayList<>();
 
+        // Loop para capturar objetos de todos os campos gerados
         for (int i = 0; i < children.size(); i++) {
             Node node = children.get(i);
             String id = node.getId();
 
-            if(id.contains("doenca") && node instanceof ChoiceBox){
-                String text = ((ChoiceBox<String>) node).getValue();
-                doencas.add(DoencaService.doencaPorNome(text));
+            if(id.contains("doenca")){
+                String choiceId = "#doencaChoice" + id.substring(id.length()-1);
+                ChoiceBox<String> choicebox = ((ChoiceBox<String>) node.lookup(choiceId));
+                String text = choicebox.getValue();
+
+                if (text != null) {
+                    doencas.add(DoencaService.doencaPorNome(text));
+                }
             }
         }
+
+        // Elimina duplicações
+        Set<Doenca> set = new HashSet<>(doencas);
+        doencas = new ArrayList<>(set);
 
         String nome = nomeVacina.getText();
         String fabricante = cadastroFabricante.getText();
 
-        if (!VacinaService.existe(nome, fabricante)) {
+        if (service.existe(nome, fabricante)) {
+            Vacina vacina = service.buscarPorNome(nome, fabricante);
+            List<Doenca> doencasCadastradas = vacina.getDoencas();
+            doencasCadastradas.addAll(doencas);
+            vacina.setDoencas(doencasCadastradas);
+            System.out.println(doencasCadastradas);
+            service.atualizarVacina(vacina);
+        }
+        else {
             Vacina vacina = new Vacina();
             vacina.setNome(nome);
             vacina.setFabricante(fabricante);
             vacina.setDoencas(doencas);
-
-            VacinaService.adicionarVacina(vacina);
+            service.adicionarVacina(vacina);
         }
 
         reiniciarContador();
-        voltarInicio();
+        voltarInicio(event);
     }
 
 }

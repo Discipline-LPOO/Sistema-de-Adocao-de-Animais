@@ -15,8 +15,8 @@ import lombok.Setter;
 @Setter
 public class DocumentoResidencia {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id_doc_residencia;
 
     @Column(name= "caminho_arquivo", length = 100, nullable = false)
     private String arquivo;
