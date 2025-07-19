@@ -5,6 +5,9 @@
              version="3.0">
 
     <persistence-unit name="adocao_de_animais">
+
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+
         <!--Informar entidades do projeto aqui-->
         <class>br.edu.ifpr.adotante.Adotante</class>
         <class>br.edu.ifpr.adocao.Adocao</class>
@@ -19,17 +22,13 @@
         <!--PLACEHOLDER - Informar dados corretos do nosso banco de dados futuramente -->
         <properties>
             <property name="jakarta.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver" />
-            <property name="jakarta.persistence.jdbc.url" value="jdbc:mysql://localhost/adocao_de_animais?useTimezone=true&amp;serverTimezone=UTC" />
+            <property name="jakarta.persistence.jdbc.url" value="jdbc:mysql://localhost/adocao_de_animais" />
             <property name="jakarta.persistence.jdbc.user" value="root" />
             <property name="jakarta.persistence.jdbc.password" value="root" />
 
-            <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL8Dialect" />
+            <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect"/>
             <property name="hibernate.show_sql" value="true" />
             <property name="hibernate.format_sql" value="true" />
-
-<!--Linha de código que impede o arquivo de persistencia de criar novas tabelas ou banco-->
-            <property name="hibernate.hbm2ddl.auto" value="none" />
-
         </properties>
     </persistence-unit>
 </persistence>

@@ -15,7 +15,7 @@ import java.util.List;
 public class Apelido {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
+    private int id_apelido;
 
     @Column(length = 50, nullable = false)
     private String nome;
@@ -36,17 +36,17 @@ public class Apelido {
 
     //Construtor
     public Apelido(int id, String nome) {
-        this.id = id;
+        this.id_apelido = id;
         this.nome = nome;
     }
 
     //Getters e Setters
     public int getId() {
-        return id;
+        return id_apelido;
     }
 
     public void setId(int id) {
-        this.id = id;
+        this.id_apelido = id;
     }
 
     public String getNome() {
