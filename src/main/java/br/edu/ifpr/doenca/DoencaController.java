@@ -4,6 +4,8 @@ import java.util.List;
 
 public class DoencaController {
 
+    private DoencaService service = new DoencaService();
+
     public void salvarDoencaNome(String nome){
         Doenca doenca = new Doenca();
         doenca.setNome(nome);

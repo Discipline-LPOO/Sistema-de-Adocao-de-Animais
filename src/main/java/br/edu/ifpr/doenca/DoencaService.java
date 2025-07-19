@@ -17,7 +17,6 @@ public class DoencaService {
         for (int i = 0; i < objetos.size(); i++) {
             doencas.add(objetos.get(i).getNome());
         }
-
         return doencas;
     }
 

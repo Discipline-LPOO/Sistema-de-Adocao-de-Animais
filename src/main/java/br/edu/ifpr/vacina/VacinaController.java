@@ -4,11 +4,12 @@ package br.edu.ifpr.vacina;
 
 import br.edu.ifpr.doenca.Doenca;
 import br.edu.ifpr.doenca.DoencaService;
-import br.edu.ifpr.menu.MenuController;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -21,11 +22,13 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
+import java.net.URL;
+import java.util.*;
 
-public class VacinaController {
+public class VacinaController implements Initializable {
     private static int contador = 1;
+
+    private VacinaService service = new VacinaService();
 
     @FXML
     private TextField nomeVacina;
@@ -36,15 +39,18 @@ public class VacinaController {
     @FXML
     private VBox cadastroContent;
 
-
     @FXML
-    private ChoiceBox<String> doencaChoice;
+    private ChoiceBox doencaChoice;
 
-    public VacinaController(){
-        doencaChoice.setItems((ObservableList) listaDoencas());
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle){
+        doencaChoice.setItems(listaDoencas());
     }
-    public List<String> listaDoencas(){
-        return DoencaService.todasDoencas();
+
+    public ObservableList<String> listaDoencas(){
+        List<String> listaDoencas = DoencaService.todasDoencas();
+        ObservableList<String> observableList = FXCollections.observableArrayList(listaDoencas);
+        return observableList;
     }
 
     public void adicionarDoenca(){
@@ -64,6 +70,7 @@ public class VacinaController {
         choicebox.setLayoutY(Double.parseDouble("31.0"));
         choicebox.setPrefHeight(Double.parseDouble("25.0"));
         choicebox.setPrefWidth(Double.parseDouble("302.0"));
+        choicebox.setItems(listaDoencas());
 
         Button addDoenca = new Button("+" );
         addDoenca.setLayoutX(Double.parseDouble("540.0"));
@@ -96,33 +103,40 @@ public class VacinaController {
         }
     }
 
-    public void cadastrarVacina(){
+    public void cadastrarVacina(ActionEvent event){
         ObservableList<Node> children = cadastroContent.getChildren();
-        List<Doenca> doencas = new ArrayList<>();
+        List<Doenca> inputs = new ArrayList<>();
 
+        // Loop para capturar objetos de todos os campos gerados
         for (int i = 0; i < children.size(); i++) {
             Node node = children.get(i);
             String id = node.getId();
 
             if(id.contains("doenca") && node instanceof ChoiceBox){
                 String text = ((ChoiceBox<String>) node).getValue();
-                doencas.add(DoencaService.doencaPorNome(text));
+                inputs.add(DoencaService.doencaPorNome(text));
             }
         }
+
+        // Elimina duplicações
+        Set<Doenca> set = new HashSet<>(inputs);
+        List<Doenca> doencas = new ArrayList<>(set);
 
         String nome = nomeVacina.getText();
         String fabricante = cadastroFabricante.getText();
 
-        if (!VacinaService.existe(nome, fabricante)) {
+        if (!service.existe(nome, fabricante)) {
             Vacina vacina = new Vacina();
             vacina.setNome(nome);
             vacina.setFabricante(fabricante);
             vacina.setDoencas(doencas);
-
-            VacinaService.adicionarVacina(vacina);
+            service.adicionarVacina(vacina);
+            System.out.println("Vacina adicionada com sucesso!");
         }
 
+        System.out.println("Ou não adicionou ou ja acabou hihi!");
         reiniciarContador();
+        voltarInicio(event);
     }
 
 }
