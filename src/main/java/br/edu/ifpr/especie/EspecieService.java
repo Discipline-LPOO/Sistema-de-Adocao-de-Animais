@@ -26,7 +26,7 @@ public class EspecieService {
         return especies;
     }
 
-    public Especie especiePorNome(String nome){
+    public static Especie especiePorNome(String nome){
         return dao.especiePorNome(nome);
     };
 
