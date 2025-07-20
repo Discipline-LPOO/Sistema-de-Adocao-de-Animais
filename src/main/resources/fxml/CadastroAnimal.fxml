@@ -91,9 +91,9 @@
                                        <children>
                                           <Label layoutX="75.0" layoutY="6.0" text="Vacina:" />
                                           <Label layoutX="94.0" layoutY="35.0" text="Nome:" />
-                                          <ChoiceBox fx:id="vacinaChoice1" layoutX="101.0" layoutY="58.0" prefHeight="26.0" prefWidth="238.0"/>
+                                          <ChoiceBox fx:id="vacinaChoice1" layoutX="101.0" layoutY="58.0" prefHeight="26.0" prefWidth="238.0" onAction="#definirListaFabricante"/>
                                           <Label layoutX="94.0" layoutY="110.0" text="Fabricante:" />
-                                          <ChoiceBox fx:id="fabricanteChoice1" layoutX="101.0" layoutY="127.0" prefHeight="26.0" prefWidth="237.0" onMouseClicked="#definirListaFabricante"/>
+                                          <ChoiceBox fx:id="fabricanteChoice1" layoutX="101.0" layoutY="127.0" prefHeight="26.0" prefWidth="237.0"/>
                                           <Button layoutX="544.0" layoutY="71.0" mnemonicParsing="false" text="+" onAction="#adicionarVacina">
                                              <font>
                                                 <Font name="System Bold" size="12.0" />

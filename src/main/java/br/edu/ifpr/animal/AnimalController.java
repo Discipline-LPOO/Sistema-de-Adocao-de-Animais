@@ -1,6 +1,5 @@
 package br.edu.ifpr.animal;
 
-import br.edu.ifpr.doenca.Doenca;
 import br.edu.ifpr.especie.Especie;
 import br.edu.ifpr.especie.EspecieService;
 import br.edu.ifpr.vacina.Vacina;
@@ -18,7 +17,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
@@ -56,9 +54,12 @@ public class AnimalController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle){
         vacinaChoice1.setItems(listaVacinas());
-        ObservableList<Sexo> listaSexos = FXCollections.observableArrayList();
+
+        ObservableList<String> especies = FXCollections.observableArrayList(EspecieService.todasEspecies());
+        especieChoice.setItems(especies);
+
+        ObservableList<Sexo> listaSexos = FXCollections.observableArrayList(Sexo.values());
         sexoChoice.setItems(listaSexos);
-        sexoChoice.setValue(Sexo.values()[0]);
     }
 
     public ObservableList<String> listaVacinas(){
@@ -76,23 +77,24 @@ public class AnimalController implements Initializable {
         return null;
     }
 
-    public void definirListaFabricante(MouseEvent event){
-        Node choice = ((javafx.scene.Node) event.getSource());
-        String id = choice.getId();
-        id = ("#VacinaChoice" + id.substring(id.length()-1));
-        Node parent = (Node) choice.getParent();
-        ChoiceBox<String> antChoice = ((ChoiceBox<String>)parent.lookup(id));
+    public void definirListaFabricante(ActionEvent event){
+        ChoiceBox<String> vacina = (ChoiceBox<String>) event.getSource();
+        String id = vacina.getId();
+        id = ("#fabricanteChoice" + id.substring(id.length()-1));
 
-        ((ChoiceBox<String>) choice).setItems(listaFabricante(antChoice.getValue()));
+        Node parent = (Node) vacina.getParent();
+        ChoiceBox<String> fabricante = ((ChoiceBox<String>)parent.lookup(id));
+
+        fabricante.setItems(listaFabricante(vacina.getValue()));
     }
 
     public void adicionarVacina(){
         contador++;
 
         Pane pane = new Pane();
-        pane.setId(("doencaPane" + Integer.toString(contador)));
-        pane.setPrefHeight(Double.parseDouble("70.0"));
-        pane.setPrefWidth(Double.parseDouble("652.0"));
+        pane.setId(("vacinaPane" + Integer.toString(contador)));
+        pane.setPrefHeight(Double.parseDouble("209.0"));
+        pane.setPrefWidth(Double.parseDouble("640.0"));
 
         Label label1 = new Label("Vacina:");
         label1.setLayoutX(Double.parseDouble("75.0"));;
@@ -209,7 +211,7 @@ public class AnimalController implements Initializable {
         animal.setSexo(sexo);
         animal.setVacinas(vacinas);
         service.salvarAnimal(animal);
-
+        
         reiniciarContador();
         voltarInicio(event);
     }

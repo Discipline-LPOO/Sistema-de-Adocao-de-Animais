@@ -10,6 +10,17 @@ public class EspecieService {
 
     private static EspecieDao dao = new EspecieDao();
 
+    public static List<String> todasEspecies(){
+        List<Especie> objetos = dao.todasEspecies();
+        List<String> especies = new ArrayList<>();
+
+        for(int i = 0; i < objetos.size(); i++){
+            especies.add(objetos.get(i).getNome());
+        }
+
+        return especies;
+    }
+
     public static List<String> todasEspeciesComApelidos(){
         List<Especie> objetos = dao.todasEspecies();
         List<String> especies = new ArrayList<>();

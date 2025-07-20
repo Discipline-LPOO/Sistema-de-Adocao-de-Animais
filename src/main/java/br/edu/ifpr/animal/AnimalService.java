@@ -8,7 +8,9 @@ import java.util.List;
 public class AnimalService {
     public static AnimalDao dao = new AnimalDao();
 
-    public void salvarAnimal(Animal animal){}
+    public void salvarAnimal(Animal animal){
+        dao.salvar(animal);
+    }
 
     public static boolean validarTextField(List<String> inputs){
         if(inputs.get(0).isEmpty() || inputs.get(0) == null){
