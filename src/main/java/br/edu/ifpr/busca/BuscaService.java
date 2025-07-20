@@ -47,4 +47,11 @@ public class BuscaService {
                 "Adoção: nome animal");
     }
 
+    public String stringCastracao(boolean castracao) {
+    if (castracao) {
+        return "Sim";
+    } else{
+        return "Não";
+    }
+    }
 }

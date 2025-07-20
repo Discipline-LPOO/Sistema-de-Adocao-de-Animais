@@ -30,9 +30,13 @@ public class AdocaoDao extends Dao<Adocao>{
         return query.getResultList();
     }
 
+    public static List<Adocao> selectAnimaisAdotados() {
+        TypedQuery<Adocao> query = em.createQuery(
+                "SELECT a FROM adocoes ad WHERE ad.id_animal = ", Adocao.class
+        );
+        return query.getResultList();
     public List<Adocao> todasAdocoes() {
         String jpql = "SELECT a FROM Adocao a";
         return em.createQuery(jpql, Adocao.class).getResultList();
     }
 
-}

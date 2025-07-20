@@ -37,6 +37,7 @@ public class DoencaService {
         return doencas;
     }
 
+
     public  static Doenca doencaPorNome(String nome) {
         return dao.buscaPorNome(nome);
     }

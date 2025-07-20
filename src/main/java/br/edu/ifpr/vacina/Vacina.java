@@ -30,7 +30,8 @@ public class Vacina {
     private List<Doenca> doencas;
 
     //Construtores
-    public Vacina(int id, String nome, String fabricante, List<Doenca> doencas) {
+
+    public Vacina(int id, String nome, String fabricante, List<Doenca> Doenca) {
         this.id_vacina = id;
         this.nome = nome;
         this.fabricante = fabricante;
