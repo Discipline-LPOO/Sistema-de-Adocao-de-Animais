@@ -22,12 +22,11 @@ public class Adotante {
     private String cpf;
 
     @OneToOne()
+    @JoinColumn(name = "id_doc_identidade", referencedColumnName = "id_doc_identidade")
     private DocumentoIdentidade docID;
 
-    @Column(name = "endereco", nullable = false)
-    private String endereco;
-
     @OneToOne()
+    @JoinColumn(name = "id_doc_residencia")
     private DocumentoResidencia comprovanteEnd;
 
     @Column(name = "telefone", length = 11, nullable = false)
@@ -40,7 +39,6 @@ public class Adotante {
         this.nome = nome;
         this.cpf = cpf;
         this.docID = docID;
-        this.endereco = endereco;
         this.comprovanteEnd = comprovanteEnd;
         this.telefone = telefone;
     }
@@ -76,14 +74,6 @@ public class Adotante {
 
     public void setDocID(DocumentoIdentidade docID) {
         this.docID = docID;
-    }
-
-    public String getEndereco() {
-        return endereco;
-    }
-
-    public void setEndereco(String endereco) {
-        this.endereco = endereco;
     }
 
     public DocumentoResidencia getComprovanteEnd() {

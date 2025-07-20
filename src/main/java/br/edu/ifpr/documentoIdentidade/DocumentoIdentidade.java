@@ -15,7 +15,7 @@ public class DocumentoIdentidade {
     private int id_doc_identidade;
 
     @Enumerated(EnumType.STRING)
-    @Column(name = "tipo_documento", nullable = false)
+    @Column(name = "tipo", nullable = false)
     private TipoDocumento tipo;
 
     @Column(name = "numero", length = 11, nullable = false)

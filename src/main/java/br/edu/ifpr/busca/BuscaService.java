@@ -18,7 +18,7 @@ public class BuscaService {
                 // Adicionar lógica para ligar com a tela de resultado dependendo da query.
                 break;
             case "Adotante: CPF":
-                List<Adotante> resultadoAdotanteCpf = AdotanteDao.selectPorCPF(textoBusca);
+                Adotante resultadoAdotanteCpf = AdotanteDao.selectPorCPF(textoBusca);
                 // Adicionar lógica para ligar com a tela de resultado dependendo da query.
                 break;
             case "Animal: nome":

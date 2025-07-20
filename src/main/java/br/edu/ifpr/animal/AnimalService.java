@@ -1,7 +1,11 @@
 package br.edu.ifpr.animal;
 
+import br.edu.ifpr.adocao.Adocao;
+import br.edu.ifpr.adocao.AdocaoService;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -35,4 +39,38 @@ public class AnimalService {
             return null;
         }
     }
+
+    public static List<Animal> todosAnimaisAdotados(){
+        List<Adocao> adocoes = AdocaoService.todasAdocoes();
+        List<Animal> animais = new ArrayList<>();
+        for(int i = 0; i < adocoes.size(); i++){
+            animais.add(adocoes.get(i).getAnimal());
+        }
+        return animais;
+    }
+
+    public static List<Animal> todosAnimaisNaoAdotados(){
+        List<Animal> todosAnimais = dao.todosAnimais();
+        List<Animal> animaisAdotados = todosAnimaisAdotados();
+        List<Animal> animaisNaoAdotados = new ArrayList<>();
+
+        for(int i = 0; i < todosAnimais.size(); i++){
+            if(!animaisAdotados.contains(todosAnimais.get(i))){
+                animaisNaoAdotados.add(todosAnimais.get(i));
+            }
+        }
+        return animaisNaoAdotados;
+    }
+
+    public static List<String> nomesAnimaisNaoAdotados(){
+        List<Animal> animaisNaoAdotados = todosAnimaisNaoAdotados();
+        List<String> nomesAnimais = new ArrayList<>();
+
+        for(int i = 0; i < animaisNaoAdotados.size(); i++){
+            nomesAnimais.add(animaisNaoAdotados.get(i).getNome());
+        }
+
+        return nomesAnimais;
+    }
+
 }

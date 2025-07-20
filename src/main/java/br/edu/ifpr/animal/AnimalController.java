@@ -211,7 +211,7 @@ public class AnimalController implements Initializable {
         animal.setSexo(sexo);
         animal.setVacinas(vacinas);
         service.salvarAnimal(animal);
-        
+
         reiniciarContador();
         voltarInicio(event);
     }

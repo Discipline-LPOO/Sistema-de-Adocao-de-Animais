@@ -29,4 +29,10 @@ public class AdocaoDao extends Dao<Adocao>{
         query.setParameter("nome", textoBusca);
         return query.getResultList();
     }
+
+    public List<Adocao> todasAdocoes() {
+        String jpql = "SELECT a FROM Adocao a";
+        return em.createQuery(jpql, Adocao.class).getResultList();
+    }
+
 }
