@@ -6,6 +6,7 @@ import jakarta.persistence.NoResultException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 public class AdotanteService {
 
@@ -25,12 +26,20 @@ public class AdotanteService {
 
     public static boolean existe(String cpf){
         try{
-            AdotanteDao.selectPorCPF(cpf);
+            adotanteDao.selectPorCPF(cpf);
         }
         catch (NoResultException e){
             return false;
         }
         return true;
+    }
+
+    public static List<Adotante> selectPorNome(String nome){
+        return adotanteDao.selectPorNome(nome);
+    }
+
+    public static Adotante selectPorCPF(String cpf){
+        return adotanteDao.selectPorCPF(cpf);
     }
 
 }

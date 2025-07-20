@@ -119,7 +119,7 @@ public class AdocaoController implements Initializable {
             if (animal != null){
                 Adocao adocao = new Adocao();
                 adocao.setData(data);
-                adocao.setAdotante(AdotanteDao.selectPorCPF(cpfField.getText()));
+                adocao.setAdotante(AdotanteService.selectPorCPF(cpfField.getText()));
                 adocao.setAnimal(animal);
 
             }

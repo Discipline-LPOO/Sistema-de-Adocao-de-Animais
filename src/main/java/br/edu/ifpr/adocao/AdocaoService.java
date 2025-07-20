@@ -33,4 +33,16 @@ public class AdocaoService {
             return null;
         }
     }
+
+    public static List<Adocao> selectPorDataAdocao(String textoBusca) {
+        return dao.selectPorDataAdocao(textoBusca);
+    }
+
+    public static List<Adocao> selectPorNomeAdotante(String textoBusca) {
+        return dao.selectPorNomeAdotante(textoBusca);
+    }
+
+    public static List<Adocao> selectPorNomeAnimal(String textoBusca) {
+        return dao.selectPorNomeAnimal(textoBusca);
+    }
 }

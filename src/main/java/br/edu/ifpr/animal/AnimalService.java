@@ -73,4 +73,12 @@ public class AnimalService {
         return nomesAnimais;
     }
 
+    public static List<Animal> selectPorNome(String textoBusca){
+        return dao.selectPorNome(textoBusca);
+    }
+
+    public static List<Animal> selectPorDataAcolhimento(String textoBusca) {
+        return dao.selectPorDataAcolhimento(textoBusca);
+    }
+
 }

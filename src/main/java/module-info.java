@@ -16,6 +16,7 @@ module br.edu.ifpr {
     exports br.edu.ifpr.menu;
 
     opens br.edu.ifpr.menu to javafx.fxml;
+    opens br.edu.ifpr.busca to javafx.fxml;
 
     // javafx
     opens br.edu.ifpr.adotante to org.hibernate.orm.core, jakarta.persistence, javafx.fxml;

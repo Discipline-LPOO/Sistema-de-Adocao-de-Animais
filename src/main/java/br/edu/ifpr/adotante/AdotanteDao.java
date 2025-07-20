@@ -20,17 +20,17 @@ retorna a lista de adotantes (objetos)
 
 Deixei o nome da tabela igual ao do model pra n dar conflito
 */
-    public static List<Adotante> selectPorNome(String textoBusca) {
+    public List<Adotante> selectPorNome(String textoBusca) {
         TypedQuery<Adotante> query = em.createQuery(
-                "SELECT a FROM adotantes WHERE a.nome = :nome", Adotante.class
+                "SELECT a FROM Adotante a WHERE nome = :nome", Adotante.class
         );
         query.setParameter("nome", textoBusca);
         return query.getResultList();
     }
 
-    public static Adotante selectPorCPF(String textoBusca) {
+    public Adotante selectPorCPF(String textoBusca) {
         TypedQuery<Adotante> query = em.createQuery(
-                "SELECT a FROM adotantes WHERE a.cpf = :cpf", Adotante.class
+                "SELECT a FROM Adotante a WHERE cpf = :cpf", Adotante.class
         );
         query.setParameter("cpf", textoBusca);
         return query.getSingleResult();

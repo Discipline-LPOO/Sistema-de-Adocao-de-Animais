@@ -233,11 +233,25 @@ public class BuscaController implements Initializable {
         stageBusca.show();
     }
 
+    public void voltarInicio(ActionEvent event){
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/Menu.fxml"));
+            Parent root = loader.load();
+            Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
     public void buscar(ActionEvent event) throws IOException {
         // Retorna a query com base no que foi pesquisado.
         List<Object> retornosBusca = buscaService.buscar(buscaField.getText(), buscaChoice.getValue());
         // Abre a tela de resultado
-        FXMLLoader loaderResultado = new FXMLLoader(getClass().getResource("Resultado.fxml"));
+        FXMLLoader loaderResultado = new FXMLLoader(getClass().getResource("/fxml/Resultado.fxml"));
         Parent rootResultado = loaderResultado.load();
         Stage stageResultado = (Stage)((Node)event.getSource()).getScene().getWindow();
         Scene sceneResultado = new Scene(rootResultado);
