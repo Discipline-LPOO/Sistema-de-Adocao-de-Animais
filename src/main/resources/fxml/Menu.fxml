@@ -80,6 +80,12 @@
                      </font>
                   </Label>
                   <Separator prefWidth="200.0" />
+                   <Label fx:id="especieLabel" text="Cadastrar espécie" onMouseClicked="#handleMenuClick">
+                       <font>
+                           <Font size="18.0" />
+                       </font>
+                   </Label>
+                   <Separator prefWidth="200.0" />
                </children>
             </VBox>
             <Separator layoutX="207.0" layoutY="14.0" orientation="VERTICAL" prefHeight="378.0" prefWidth="8.0" />

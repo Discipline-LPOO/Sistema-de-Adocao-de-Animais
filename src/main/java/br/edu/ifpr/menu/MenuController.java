@@ -41,6 +41,9 @@ public class MenuController {
             case "doencaLabel":
                 fxmlPath = "/fxml/CadastroDoenca.fxml";
                 break;
+            case "especieLabel":
+                fxmlPath = "/fxml/CadastroEspecie.fxml";
+                break;
             default:
                 System.out.println("Nenhuma ação definida");
         }
