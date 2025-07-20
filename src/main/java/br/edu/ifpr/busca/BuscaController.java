@@ -275,7 +275,7 @@ public class BuscaController implements Initializable {
     }
 
     public void voltarMenu(ActionEvent event) throws IOException {
-        FXMLLoader loaderMenu = new FXMLLoader(getClass().getResource("Menu.fxml"));
+        FXMLLoader loaderMenu = new FXMLLoader(getClass().getResource("/fxml/Menu.fxml"));
         Parent rootMenu = loaderMenu.load();
         Stage stageMenu = (Stage)((Node)event.getSource()).getScene().getWindow();
         Scene sceneMenu = new Scene(rootMenu);

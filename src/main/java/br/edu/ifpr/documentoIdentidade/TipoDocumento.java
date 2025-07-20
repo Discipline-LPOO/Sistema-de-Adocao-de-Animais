@@ -4,5 +4,6 @@ enum TipoDocumento {
     RG,
     CNH,
     CTPS,
-    DNI
+    DNI,
+    Passaporte
 }

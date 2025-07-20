@@ -45,4 +45,8 @@ public class AdocaoService {
     public static List<Adocao> selectPorNomeAnimal(String textoBusca) {
         return dao.selectPorNomeAnimal(textoBusca);
     }
+
+    public static void salvarAdocao(Adocao adocao){
+        dao.salvar(adocao);
+    }
 }

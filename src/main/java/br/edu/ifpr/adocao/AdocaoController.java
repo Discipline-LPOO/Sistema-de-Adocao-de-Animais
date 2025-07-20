@@ -7,6 +7,7 @@ import br.edu.ifpr.animal.AnimalService;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -71,7 +72,7 @@ public class AdocaoController implements Initializable {
         }
     }
 
-    public void adotanteVerificado(ActionEvent event){
+    public void adotanteVerificado(Event event){
         if(AdotanteService.existe(cpfField.getText())){
             verificado.setVisible(true);
         }
@@ -103,26 +104,22 @@ public class AdocaoController implements Initializable {
     }
 
     public void salvarAdocao(ActionEvent event){
+        System.out.println(verificado.isVisible());
+
         if (verificado.isVisible() && service.validarData(dataField.getText())){
+            System.out.println(verificado);
+            System.out.println(cpfField.getText());
             Date data = service.converterData(dataField.getText());
             String nome = animalChoice.getValue();
-            String nomeAtual;
-            Animal animal = null;
-            for (int i = 1; i < animaisDisponiveis.size(); i++){
-                nomeAtual = animaisDisponiveis.get(i).getNome();
-                if (nome.equals(nomeAtual)){
-                    animal = animaisDisponiveis.get(i);
-                    break;
-                }
-            }
 
-            if (animal != null){
-                Adocao adocao = new Adocao();
-                adocao.setData(data);
-                adocao.setAdotante(AdotanteService.selectPorCPF(cpfField.getText()));
-                adocao.setAnimal(animal);
+            Animal animal = AnimalService.selectPorNome(nome).get(0);
 
-            }
+            System.out.println(animal);
+            Adocao adocao = new Adocao();
+            adocao.setData(data);
+            adocao.setAdotante(AdotanteService.selectPorCPF(cpfField.getText()));
+            adocao.setAnimal(animal);
+            service.salvarAdocao(adocao);
 
             voltarInicio(event);
         }
