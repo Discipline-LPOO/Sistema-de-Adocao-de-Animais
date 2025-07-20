@@ -21,4 +21,15 @@ public class AnimalDao extends Dao<Animal> {
         query.setParameter("data_nasc", textoBusca);
         return query.getResultList();
     }
+
+    public List<Animal> selectPorId(int id) {
+        String jpql = "SELECT a FROM Animal a WHERE id = :id";
+        return em.createQuery(jpql, Animal.class).getResultList();
+    }
+
+    public List<Animal> todosAnimais(){
+        String jpql = "SELECT a FROM animais";
+        return em.createQuery(jpql, Animal.class).getResultList();
+    }
+
 }

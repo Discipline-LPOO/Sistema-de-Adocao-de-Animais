@@ -19,5 +19,5 @@ public class DocumentoResidencia {
     private int id_doc_residencia;
 
     @Column(name= "caminho_arquivo", length = 100, nullable = false)
-    private String arquivo;
+    private String caminhoArquivo;
 }

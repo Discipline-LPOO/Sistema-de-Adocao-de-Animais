@@ -37,7 +37,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
-<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.edu.ifpr.cadastro.CadastroController">
+<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.edu.ifpr.adotante.AdotanteController">
   <children>
       <ScrollPane hbarPolicy="NEVER" prefHeight="395.0" prefWidth="640.0">
         <content>
@@ -45,7 +45,7 @@
                <children>
                   <Pane fx:id="cadastroHeader" prefHeight="71.0" prefWidth="640.0">
                      <children>
-                        <Button fx:id="homeButton" layoutX="40.0" layoutY="23.0" mnemonicParsing="false" text="Button" />
+                        <Button fx:id="homeButton" layoutX="40.0" layoutY="23.0" mnemonicParsing="false" text="Voltar" onAction="#voltarInicio"/>
                         <Label fx:id="cadastroTitle" layoutX="234.0" layoutY="22.0" text="Cadastro de adotante">
                            <font>
                               <Font size="18.0" />
@@ -67,8 +67,8 @@
                   <Button layoutX="77.0" layoutY="441.0" mnemonicParsing="false" text="Inserir imagem" />
                   <Pane fx:id="cadastroFooter" layoutY="492.0" prefHeight="62.0" prefWidth="652.0">
                      <children>
-                        <Button fx:id="cancelButton" layoutX="98.0" layoutY="21.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="166.0" text="Cancelar" />
-                        <Button fx:id="registerButton" layoutX="424.0" layoutY="21.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="150.0" text="Cadastrar" />
+                        <Button fx:id="cancelButton" layoutX="98.0" layoutY="21.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="166.0" text="Cancelar" onAction="#voltarInicio"/>
+                        <Button fx:id="registerButton" layoutX="424.0" layoutY="21.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="150.0" text="Cadastrar" onAction="#cadastrarAdotante"/>
                      </children>
                   </Pane>
                </children>

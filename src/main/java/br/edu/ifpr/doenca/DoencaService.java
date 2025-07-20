@@ -37,7 +37,8 @@ public class DoencaService {
         return doencas;
     }
 
-    public Doenca doencaPorNome(String nome) {
+
+    public  static Doenca doencaPorNome(String nome) {
         return dao.buscaPorNome(nome);
     }
 
@@ -73,5 +74,15 @@ public class DoencaService {
         }
     }
 
+    public boolean validateTextField(String text){
+        if(text.trim().isEmpty() || text.isEmpty()){
+            return  false;
+        }
+        return true;
+    }
+
+    public void atualizarDoenca(Doenca doenca){
+        dao.atualizar(doenca);
+    }
 
 }

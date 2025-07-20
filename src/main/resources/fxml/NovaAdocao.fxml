@@ -32,25 +32,34 @@
   OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 -->
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.edu.ifpr.busca.BuscaController">
+<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.edu.ifpr.adocao.AdocaoController">
   <children>
     <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
       <children>
-        <Label fx:id="buscaTitle" alignment="CENTER" layoutX="297.0" layoutY="38.0" style="&#10;" text="Busca" textAlignment="CENTER" wrapText="false">
+        <Label fx:id="buscaTitle" alignment="CENTER" layoutX="297.0" layoutY="38.0" style="&#10;" text="Adoção" textAlignment="CENTER" wrapText="false">
           <font>
             <Font size="18.0" />
           </font>
         </Label>
-            <Label layoutX="121.0" layoutY="123.0" text="Texto:" />
-            <TextField fx:id="buscaField" layoutX="167.0" layoutY="119.0" prefHeight="26.0" prefWidth="397.0" />
-            <ChoiceBox fx:id="buscaChoice" layoutX="167.0" layoutY="187.0" prefHeight="26.0" prefWidth="194.0" />
-            <Label layoutX="97.0" layoutY="191.0" text="Conteúdo:" />
-            <Button layoutX="294.0" layoutY="313.0" mnemonicParsing="false" onAction="#buscar" text="Buscar" />
-            <Button fx:id="homeButton" layoutX="45.0" layoutY="39.0" mnemonicParsing="false" text="Voltar" />
+            <Label layoutX="123.0" layoutY="113.0" text="CPF do adotante:" />
+            <TextField fx:id="cpfField" layoutX="225.0" layoutY="108.0" onAction="#adotanteVerificado" prefHeight="26.0" prefWidth="273.0" promptText="Apenas números" />
+            <Label layoutX="69.0" layoutY="162.0" text="Nome do animal (opcional):" />
+            <TextField fx:id="nomeField" layoutX="227.0" layoutY="157.0" prefHeight="26.0" prefWidth="273.0" onAction="#listarAnimais"/>
+            <Label layoutX="176.0" layoutY="209.0" text="Animal:" />
+            <ChoiceBox fx:id="animalChoice" layoutX="227.0" layoutY="205.0" prefHeight="26.0" prefWidth="273.0" />
+            <Button fx:id="homeButton" layoutX="45.0" layoutY="39.0" mnemonicParsing="false" text="Voltar" onAction="#voltarInicio" />
+            <Label fx:id="verificado" layoutX="511.0" layoutY="125.0" text="Verificado" textFill="#039741" visible="false" />
+            <Button layoutX="474.0" layoutY="327.0" mnemonicParsing="false" text="Concluir adoção" onAction="#salvarAdocao"/>
+            <Label layoutX="188.0" layoutY="259.0" text="Data:" />
+            <TextField fx:id="dataField" layoutX="227.0" layoutY="255.0" promptText="00/00/00" />
       </children>
     </AnchorPane>
   </children>

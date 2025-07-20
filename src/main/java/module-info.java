@@ -18,14 +18,14 @@ module br.edu.ifpr {
     opens br.edu.ifpr.menu to javafx.fxml;
 
     // javafx
-    opens br.edu.ifpr.adotante to org.hibernate.orm.core, jakarta.persistence;
-    opens br.edu.ifpr.adocao to org.hibernate.orm.core, jakarta.persistence;
-    opens br.edu.ifpr.animal to org.hibernate.orm.core, jakarta.persistence;
+    opens br.edu.ifpr.adotante to org.hibernate.orm.core, jakarta.persistence, javafx.fxml;
+    opens br.edu.ifpr.adocao to org.hibernate.orm.core, jakarta.persistence, javafx.fxml;
+    opens br.edu.ifpr.animal to org.hibernate.orm.core, jakarta.persistence, javafx.fxml;
     opens br.edu.ifpr.apelido to org.hibernate.orm.core, jakarta.persistence;
     opens br.edu.ifpr.documentoIdentidade to org.hibernate.orm.core, jakarta.persistence;
     opens br.edu.ifpr.documentoResidencia to org.hibernate.orm.core, jakarta.persistence;
-    opens br.edu.ifpr.doenca to org.hibernate.orm.core, jakarta.persistence;
-    opens br.edu.ifpr.especie to org.hibernate.orm.core, jakarta.persistence;
+    opens br.edu.ifpr.doenca to org.hibernate.orm.core, jakarta.persistence, javafx.fxml;
+    opens br.edu.ifpr.especie to org.hibernate.orm.core, jakarta.persistence, javafx.fxml;
     opens br.edu.ifpr.vacina to org.hibernate.orm.core, jakarta.persistence, javafx.fxml;
 
 }
