@@ -5,13 +5,9 @@ import br.edu.ifpr.adocao.Adocao;
 import br.edu.ifpr.adotante.Adotante;
 import br.edu.ifpr.animal.Animal;
 import br.edu.ifpr.animal.Sexo;
-import br.edu.ifpr.especie.Especie;
 import br.edu.ifpr.vacina.Vacina;
-import javafx.beans.Observable;
 import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.beans.property.ReadOnlyStringWrapper;
-import javafx.beans.property.SimpleIntegerProperty;
-import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -225,7 +221,7 @@ public class BuscaController implements Initializable {
         }
 
 
-        
+        // TODO -> Adicionar a funcionalidade para as vacinas e animais adotados
     }
 
     public void iniciarBusca(ActionEvent event) throws IOException {
