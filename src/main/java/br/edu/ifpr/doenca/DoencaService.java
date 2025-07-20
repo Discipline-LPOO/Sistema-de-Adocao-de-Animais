@@ -17,7 +17,6 @@ public class DoencaService {
         for (int i = 0; i < objetos.size(); i++) {
             doencas.add(objetos.get(i).getNome());
         }
-
         return doencas;
     }
 
@@ -38,11 +37,11 @@ public class DoencaService {
         return doencas;
     }
 
-    public static Doenca doencaPorNome(String nome) {
+    public  static Doenca doencaPorNome(String nome) {
         return dao.buscaPorNome(nome);
     }
 
-    public static boolean existe(String nome){
+    public boolean existe(String nome){
         List<String> doencas = todasDoencasComApelidos();
 
         if(doencas.contains(nome)){
@@ -52,7 +51,7 @@ public class DoencaService {
         return false;
     }
 
-    public static void adicionarDoenca(Doenca doenca){
+    public void adicionarDoenca(Doenca doenca){
         String nome = doenca.getNome();
 
         if(nome.length() >= 2) {
@@ -74,5 +73,15 @@ public class DoencaService {
         }
     }
 
+    public boolean validateTextField(String text){
+        if(text.trim().isEmpty() || text.isEmpty()){
+            return  false;
+        }
+        return true;
+    }
+
+    public void atualizarDoenca(Doenca doenca){
+        dao.atualizar(doenca);
+    }
 
 }

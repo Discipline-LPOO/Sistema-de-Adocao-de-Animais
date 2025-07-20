@@ -6,14 +6,24 @@ import java.util.List;
 
 public class ApelidoDao extends Dao<Apelido> {
 
-    public static List<Apelido> todosApelidosDoencas(){
+    public List<Apelido> todosApelidosDoencas(){
         String jpql = "SELECT DISTINCT a FROM Apelido a JOIN a.doencas";
         return em.createQuery(jpql, Apelido.class).getResultList();
     }
 
-    public static List<Apelido> todosApelidosEspecies(){
+    public List<Apelido> todosApelidosEspecies(){
         String jpql = "SELECT a FROM Apelido a JOIN a.especies";
         return em.createQuery(jpql, Apelido.class).getResultList();
+    }
+
+    public List<Apelido> todosApelidos(){
+        String jpql =  "SELECT DISTINCT a FROM Apelido a";
+        return em.createQuery(jpql, Apelido.class).getResultList();
+    }
+
+    public Apelido buscarPorNome(String nome){
+        String jpql = "SELECT a FROM Apelido a WHERE nome = :nome";
+        return em.createQuery(jpql, Apelido.class).setParameter("nome", nome).getSingleResult();
     }
 
 }

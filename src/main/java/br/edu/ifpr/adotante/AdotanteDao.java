@@ -28,11 +28,11 @@ Deixei o nome da tabela igual ao do model pra n dar conflito
         return query.getResultList();
     }
 
-    public static List<Adotante> selectPorCPF(String textoBusca) {
+    public static Adotante selectPorCPF(String textoBusca) {
         TypedQuery<Adotante> query = em.createQuery(
                 "SELECT a FROM adotantes WHERE a.cpf = :cpf", Adotante.class
         );
         query.setParameter("cpf", textoBusca);
-        return query.getResultList();
+        return query.getSingleResult();
     }
 }

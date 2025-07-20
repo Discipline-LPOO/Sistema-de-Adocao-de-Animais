@@ -1,7 +1,11 @@
 package br.edu.ifpr.adotante;
 
-//import br.edu.ifpr.DocumentoResidencia.DocumentoResidencia;
-//import br.edu.ifpr.DocumentoResidencia.DocumentoResidenciaService;
+
+import jakarta.persistence.NoResultException;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class AdotanteService {
 
@@ -13,9 +17,19 @@ public class AdotanteService {
         adotante.setNome(nome);
         adotante.setCpf(cpf);
         adotante.setTelefone(telefone);
-        adotante.setEndereco(endereco);
         // Adicionar docs residência
         // Adicionar docs identidade
         adotanteDao.salvar(adotante);
     }
+
+    public static boolean existe(String cpf){
+        try{
+            AdotanteDao.selectPorCPF(cpf);
+        }
+        catch (NoResultException e){
+            return false;
+        }
+        return true;
+    }
+
 }

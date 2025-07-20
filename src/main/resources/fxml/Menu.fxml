@@ -44,42 +44,48 @@
       <children>
             <VBox layoutX="14.0" layoutY="22.0" prefHeight="378.0" prefWidth="194.0">
                <children>
-                  <Label fx:id="buscaLabel" text="Busca">
+                  <Label fx:id="buscaLabel" text="Busca" onMouseClicked="#handleMenuClick">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Label>
                   <Separator prefWidth="200.0" />
-                  <Label fx:id="adocaoLabel" text="Nova adoção">
+                  <Label fx:id="adocaoLabel" text="Nova adoção" onMouseClicked="#handleMenuClick">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Label>
                   <Separator prefWidth="200.0" />
-                  <Label fx:id="animalLabel" text="Cadastrar animal">
+                  <Label fx:id="animalLabel" text="Cadastrar animal" onMouseClicked="#handleMenuClick">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Label>
                   <Separator prefWidth="200.0" />
-                  <Label fx:id="adotanteLabel" text="Cadastrar adotante">
+                  <Label fx:id="adotanteLabel" text="Cadastrar adotante" onMouseClicked="#handleMenuClick">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Label>
                   <Separator prefWidth="200.0" />
-                  <Label fx:id="vacinaLabel" text="Cadastrar vacina">
+                  <Label fx:id="vacinaLabel" text="Cadastrar vacina" onMouseClicked="#handleMenuClick">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Label>
                   <Separator prefWidth="200.0" />
-                  <Label fx:id="doencaLabel" text="Cadastrar doença">
+                  <Label fx:id="doencaLabel" text="Cadastrar doença" onMouseClicked="#handleMenuClick">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Label>
                   <Separator prefWidth="200.0" />
+                   <Label fx:id="especieLabel" text="Cadastrar espécie" onMouseClicked="#handleMenuClick">
+                       <font>
+                           <Font size="18.0" />
+                       </font>
+                   </Label>
+                   <Separator prefWidth="200.0" />
                </children>
             </VBox>
             <Separator layoutX="207.0" layoutY="14.0" orientation="VERTICAL" prefHeight="378.0" prefWidth="8.0" />

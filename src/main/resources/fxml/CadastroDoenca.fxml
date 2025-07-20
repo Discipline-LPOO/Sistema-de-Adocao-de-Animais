@@ -43,11 +43,11 @@
               <content>
                 <AnchorPane minWidth="0.0" prefHeight="500.0" prefWidth="642.0">
                      <children>
-                        <VBox fx:id="cadastroVBox" layoutX="-5.0" prefHeight="900.0" prefWidth="652.0">
+                        <VBox fx:id="cadastroVBox" layoutX="-5.0" prefWidth="652.0">
                            <children>
                               <Pane fx:id="cadastroHeader" prefHeight="71.0" prefWidth="640.0">
                                  <children>
-                                    <Button fx:id="homeButton" layoutX="40.0" layoutY="23.0" mnemonicParsing="false" text="Button" />
+                                    <Button fx:id="homeButton" layoutX="40.0" layoutY="23.0" mnemonicParsing="false" text="Button" onAction="#voltarInicio" />
                                     <Label fx:id="cadastroTitle" layoutX="247.0" layoutY="22.0" text="Cadastro de doença">
                                        <font>
                                           <Font size="18.0" />
@@ -55,27 +55,27 @@
                                     </Label>
                                  </children>
                               </Pane>
-                              <VBox fx:id="cadastroContent" prefHeight="174.0" prefWidth="652.0">
+                              <VBox fx:id="cadastroContent" VBox.vgrow="ALWAYS">
                                  <children>
                                     <Pane fx:id="nomePane" prefHeight="82.0" prefWidth="652.0">
                                        <children>
                                           <Label layoutX="75.0" layoutY="15.0" text="Nome:" />
-                                          <TextField fx:id="cadastroDoencaField" layoutX="110.0" layoutY="32.0" prefHeight="26.0" prefWidth="455.0" />
+                                          <TextField fx:id="nomeField" layoutX="110.0" layoutY="32.0" prefHeight="26.0" prefWidth="455.0" />
                                        </children>
                                     </Pane>
-                                    <Pane fx:id="apelidoPane" prefHeight="84.0" prefWidth="640.0">
+                                    <Pane fx:id="apelidoPane1" prefHeight="84.0" prefWidth="640.0">
                                        <children>
                                           <Label layoutX="75.0" layoutY="20.0" text="Nome comum:" />
-                                          <TextField fx:id="cadastroApelidoField" layoutX="96.0" layoutY="39.0" />
-                                          <Button fx:id="addApelidoButton" layoutX="538.0" layoutY="30.0" mnemonicParsing="false" text="+" />
+                                          <TextField fx:id="apelidoField1" layoutX="96.0" layoutY="39.0" />
+                                          <Button fx:id="addApelidoButton" layoutX="538.0" layoutY="30.0" mnemonicParsing="false" text="+" onAction="#adicionarApelido"/>
                                        </children>
                                     </Pane>
                                  </children>
                               </VBox>
                               <Pane fx:id="cadastroFooter" prefHeight="62.0" prefWidth="652.0">
                                  <children>
-                                    <Button fx:id="cancelButton" layoutX="98.0" layoutY="21.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="166.0" text="Cancelar" />
-                                    <Button fx:id="registerButton" layoutX="424.0" layoutY="21.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="150.0" text="Cadastrar" />
+                                    <Button fx:id="cancelButton" layoutX="98.0" layoutY="21.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="166.0" text="Cancelar" onAction="#voltarInicio"/>
+                                    <Button fx:id="registerButton" layoutX="424.0" layoutY="21.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="150.0" text="Cadastrar" onAction="#salvarDoenca"/>
                                  </children>
                               </Pane>
                            </children>

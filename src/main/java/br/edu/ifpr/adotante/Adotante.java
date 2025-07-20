@@ -12,8 +12,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class Adotante {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id_adotante;
 
     @Column(name = "nome", length = 45, nullable = false)
     private String nome;
@@ -22,12 +22,11 @@ public class Adotante {
     private String cpf;
 
     @OneToOne()
+    @JoinColumn(name = "id_doc_identidade", referencedColumnName = "id_doc_identidade")
     private DocumentoIdentidade docID;
 
-    @Column(name = "endereco", nullable = false)
-    private String endereco;
-
     @OneToOne()
+    @JoinColumn(name = "id_doc_residencia")
     private DocumentoResidencia comprovanteEnd;
 
     @Column(name = "telefone", length = 11, nullable = false)
@@ -36,22 +35,21 @@ public class Adotante {
     //Construtor
     public Adotante(int id, String nome, String cpf, DocumentoIdentidade docID, String endereco, DocumentoResidencia
         comprovanteEnd, String telefone) {
-        this.id = id;
+        this.id_adotante = id;
         this.nome = nome;
         this.cpf = cpf;
         this.docID = docID;
-        this.endereco = endereco;
         this.comprovanteEnd = comprovanteEnd;
         this.telefone = telefone;
     }
 
     //Getters e Setters
     public int getId() {
-        return id;
+        return id_adotante;
     }
 
     public void setId(int id) {
-        this.id = id;
+        this.id_adotante = id;
     }
 
     public String getNome() {
@@ -76,14 +74,6 @@ public class Adotante {
 
     public void setDocID(DocumentoIdentidade docID) {
         this.docID = docID;
-    }
-
-    public String getEndereco() {
-        return endereco;
-    }
-
-    public void setEndereco(String endereco) {
-        this.endereco = endereco;
     }
 
     public DocumentoResidencia getComprovanteEnd() {
