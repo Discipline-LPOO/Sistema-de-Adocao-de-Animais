@@ -65,7 +65,7 @@
                               <TableColumn fx:id="enderecoAdotante" prefWidth="306.40008544921875" text="Endereço" />
                           </columns>
                         </TableView>
-                        <TableView fx:id="animalTable1" layoutX="10.0" layoutY="10.0" prefHeight="189.0" prefWidth="642.0">
+                        <TableView fx:id="animalTable" layoutX="10.0" layoutY="10.0" prefHeight="189.0" prefWidth="642.0">
                            <columns>
                               <TableColumn fx:id="nomeAnimal" prefWidth="132.00006103515625" text="Nome" />
                               <TableColumn fx:id="especieAnimal" prefWidth="113.5999755859375" text="Espécie" />
@@ -79,9 +79,9 @@
                         </TableView>
                         <TableView fx:id="vacinasTable" prefHeight="200.0" prefWidth="200.0" visible="false">
                           <columns>
-                            <TableColumn prefWidth="128.79995346069336" text="Animal" />
-                            <TableColumn prefWidth="139.9999542236328" text="Vacina" />
-                              <TableColumn prefWidth="164.79998779296875" text="Fabricante" />
+                            <TableColumn fx:id="vacinaAnimal" prefWidth="128.79995346069336" text="Animal" />
+                            <TableColumn fx:id="vacinaNome" prefWidth="139.9999542236328" text="Vacina" />
+                              <TableColumn fx:id="vacinaFabricante" prefWidth="164.79998779296875" text="Fabricante" />
                           </columns>
                         </TableView>
                         <TableView fx:id="adocaoTable" prefHeight="200.0" prefWidth="200.0" visible="false">

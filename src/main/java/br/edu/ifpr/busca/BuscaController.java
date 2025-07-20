@@ -6,6 +6,7 @@ import br.edu.ifpr.adotante.Adotante;
 import br.edu.ifpr.animal.Animal;
 import br.edu.ifpr.animal.Sexo;
 import br.edu.ifpr.especie.Especie;
+import br.edu.ifpr.vacina.Vacina;
 import javafx.beans.Observable;
 import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.beans.property.ReadOnlyStringWrapper;
@@ -83,7 +84,10 @@ public class BuscaController implements Initializable {
 
     // Variáveis de Animal
     @FXML
-    private TableView<Animal> animalTable1;
+    private TableView<Animal> animalTable;
+
+    @FXML
+    private TableView<Vacina> vacinasTable;
 
     @FXML
     private TableColumn<Animal, String> nomeAnimal;
@@ -108,6 +112,15 @@ public class BuscaController implements Initializable {
 
     @FXML
     private TableColumn<Animal, String> vacinasAnimal;
+
+    @FXML
+    private TableColumn<Vacina, String> vacinaAnimal;
+
+    @FXML
+    private TableColumn<Vacina, String> vacinaNome;
+
+    @FXML
+    private TableColumn<Vacina, String> vacinaFabricante;
 
     // Service instanciado
 
@@ -210,6 +223,9 @@ public class BuscaController implements Initializable {
         if (vacinasAnimal != null) {
             vacinasAnimal.setCellValueFactory(new PropertyValueFactory<>("animais_vacinas"));
         }
+
+
+        
     }
 
     public void iniciarBusca(ActionEvent event) throws IOException {
@@ -231,11 +247,21 @@ public class BuscaController implements Initializable {
         Scene sceneResultado = new Scene(rootResultado);
         stageResultado.setScene(sceneResultado);
         stageResultado.show();
-
-        // Programa escolhe qual tabela de acordo com o query
-        ObservableList<Object> query = FXCollections.observableArrayList(retornosBusca);
-
-        // Adiciona na tabela o query correto
+        switch (buscaChoice.getValue()){
+            case "Adotante: nome":
+            case "Adotante: CPF":
+                carregarAdotante();
+                break;
+            case "Animal: nome":
+            case "Animal: data acolhimento":
+                carregarAnimal();
+                break;
+            case "Adoção: data adoção":
+            case "Adoção: nome adotante":
+            case "Adoção: nome animal":
+                carregarAdocao();
+                break;
+        }
     }
 
     public void voltarMenu(ActionEvent event) throws IOException {
@@ -246,20 +272,35 @@ public class BuscaController implements Initializable {
         stageMenu.setScene(sceneMenu);
         stageMenu.show();
     }
-    
-    // Não consegui fazer as funções de retorno funcionar
-    // (Elas chamariam o resultado das querys e carregarias as tables)
-    /*
+
     public void carregarAdotante() {
-         List<Adotante> listaAdotante = Collections.singletonList(((Adotante) retornosBusca));
+        List<Adotante> listaAdotante = Collections.singletonList(((Adotante) retornosBusca));
+        ObservableList<Adotante> dados = FXCollections.observableArrayList(listaAdotante);
+        adotanteTable.setItems(dados);
+        animalTable.setVisible(false);
+        adocaoTable.setVisible(false);
+        vacinasTable.setVisible(false);
+        adotanteTable.setVisible(true);
     }
 
     public void carregarAdocao() {
-        List<Adotante> listaAdotante = Collections.singletonList(((Adocao) retornosBusca));
+        List<Adocao> listaAdocao = Collections.singletonList(((Adocao) retornosBusca));
+        ObservableList<Adocao> dados = FXCollections.observableArrayList(listaAdocao);
+        adocaoTable.setItems(dados);
+        animalTable.setVisible(false);
+        vacinasTable.setVisible(false);
+        adotanteTable.setVisible(false);
+        adocaoTable.setVisible(true);
     }
 
     public void carregarAnimal() {
-        List<Adotante> listaAdotante = Collections.singletonList(((Animal) retornosBusca));
+        List<Animal> listaAnimais = Collections.singletonList(((Animal) retornosBusca));
+        ObservableList<Animal> dados = FXCollections.observableArrayList(listaAnimais);
+        animalTable.setItems(dados);
+        adotanteTable.setVisible(false);
+        adocaoTable.setVisible(false);
+        vacinasTable.setVisible(false);
+        animalTable.setVisible(true);
     }
-    */
+
 }
