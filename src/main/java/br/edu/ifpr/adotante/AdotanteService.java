@@ -9,11 +9,12 @@ import java.util.Date;
 
 public class AdotanteService {
 
-    private Adotante adotante = new Adotante();
-    private AdotanteDao adotanteDao = new AdotanteDao();
+    private static AdotanteDao adotanteDao = new AdotanteDao();
     // private DocumentoResidenciaService documentoResidenciaService = new DocumentoResidenciaService();
     // Ainda precisa dos docs de residência e identidade
-    public void cadastrarAdotante(String nome, String cpf, String telefone, String endereco) {
+
+    public static void cadastrarAdotante(String nome, String cpf, String telefone, String endereco) {
+        Adotante adotante = new Adotante();
         adotante.setNome(nome);
         adotante.setCpf(cpf);
         adotante.setTelefone(telefone);

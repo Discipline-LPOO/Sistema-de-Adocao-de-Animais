@@ -47,7 +47,7 @@
                            <children>
                               <Pane fx:id="cadastroHeader" prefHeight="71.0" prefWidth="640.0">
                                  <children>
-                                    <Button fx:id="homeButton" layoutX="40.0" layoutY="23.0" mnemonicParsing="false" text="Button" onAction="#voltarInicio" />
+                                    <Button fx:id="homeButton" layoutX="40.0" layoutY="23.0" mnemonicParsing="false" text="Voltar" onAction="#voltarInicio" />
                                     <Label fx:id="cadastroTitle" layoutX="247.0" layoutY="22.0" text="Cadastro de doença">
                                        <font>
                                           <Font size="18.0" />
