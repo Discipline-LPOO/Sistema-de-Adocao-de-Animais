@@ -34,8 +34,9 @@
 
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-<?import javafx.scene.text.Font?>
-<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.edu.ifpr.busca.BuscaController">
+<?import javafx.scene.text.*?>
+
+<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.edu.ifpr.busca.BuscaController">
   <children>
     <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
       <children>
@@ -47,7 +48,7 @@
             <Label layoutX="121.0" layoutY="83.0" text="Texto:" />
             <TextField fx:id="resultadoField" layoutX="167.0" layoutY="79.0" prefHeight="26.0" prefWidth="424.0" />
             <Button fx:id="resultadoNovaBusca" layoutX="513.0" layoutY="359.0" mnemonicParsing="false" text="Nova Busca" />
-            <Button fx:id="homeButton" layoutX="40.0" layoutY="39.0" mnemonicParsing="false" text="Button" />
+            <Button fx:id="homeButton" layoutX="40.0" layoutY="39.0" mnemonicParsing="false" onAction="#voltarMenu" text="Menu" />
             <RadioButton fx:id="orderAlfanum" layoutX="167.0" layoutY="115.0" mnemonicParsing="false" text="Alfanumérica" />
             <RadioButton fx:id="orderNewer" layoutX="282.0" layoutY="115.0" mnemonicParsing="false" text="Mais novo" />
             <RadioButton fx:id="orderOlder" layoutX="379.0" layoutY="115.0" mnemonicParsing="false" text="Mais antigo" />
@@ -58,22 +59,22 @@
                      <children>
                         <TableView fx:id="adotanteTable" prefHeight="189.0" prefWidth="642.0">
                           <columns>
-                            <TableColumn fx:id="nomeAdotante" prefWidth="112.79998779296875" text="Nome" />
-                            <TableColumn fx:id="cpfAdotante" minWidth="0.0" prefWidth="112.0" text="CPF" />
-                              <TableColumn prefWidth="105.60003662109375" text="Telefone" />
-                              <TableColumn prefWidth="306.40008544921875" text="Endereço" />
+                              <TableColumn fx:id="nomeAdotante" prefWidth="112.79998779296875" text="Nome" />
+                              <TableColumn fx:id="cpfAdotante" minWidth="0.0" prefWidth="112.0" text="CPF" />
+                              <TableColumn fx:id="telefoneAdotante" prefWidth="105.60003662109375" text="Telefone" />
+                              <TableColumn fx:id="enderecoAdotante" prefWidth="306.40008544921875" text="Endereço" />
                           </columns>
                         </TableView>
                         <TableView fx:id="animalTable1" layoutX="10.0" layoutY="10.0" prefHeight="189.0" prefWidth="642.0">
                            <columns>
                               <TableColumn fx:id="nomeAnimal" prefWidth="132.00006103515625" text="Nome" />
                               <TableColumn fx:id="especieAnimal" prefWidth="113.5999755859375" text="Espécie" />
-                              <TableColumn prefWidth="54.39996337890625" text="Idade" />
-                              <TableColumn prefWidth="96.0" text="Acolhimento" />
-                              <TableColumn prefWidth="45.5999755859375" text="Sexo" />
-                              <TableColumn prefWidth="61.5999755859375" text="Castrado" />
-                              <TableColumn prefWidth="68.79998779296875" text="Adotado" />
-                              <TableColumn prefWidth="72.0" text="Vacinas" />
+                              <TableColumn fx:id="idadeAnimal" prefWidth="54.39996337890625" text="Idade" />
+                              <TableColumn fx:id="acolhimentoAnimal" prefWidth="96.0" text="Acolhimento" />
+                              <TableColumn fx:id="sexoAnimal" prefWidth="45.5999755859375" text="Sexo" />
+                              <TableColumn fx:id="castradoAnimal" prefWidth="61.5999755859375" text="Castrado" />
+                              <TableColumn fx:id="adotadoAnimal" prefWidth="68.79998779296875" text="Adotado" />
+                              <TableColumn fx:id="vacinasAnimal" prefWidth="72.0" text="Vacinas" />
                            </columns>
                         </TableView>
                         <TableView fx:id="vacinasTable" prefHeight="200.0" prefWidth="200.0" visible="false">
@@ -86,8 +87,8 @@
                         <TableView fx:id="adocaoTable" prefHeight="200.0" prefWidth="200.0" visible="false">
                           <columns>
                               <TableColumn fx:id="dataAdocao" prefWidth="128.800048828125" text="Data da adoção" />
-                            <TableColumn fx:id="adotanteAdocao" prefWidth="130.39996337890625" text="Adotante" />
-                            <TableColumn fx:id="cpfAdocao" prefWidth="60.0" text="CPF" />
+                              <TableColumn fx:id="adotanteAdocao" prefWidth="130.39996337890625" text="Adotante" />
+                              <TableColumn fx:id="cpfAdocao" prefWidth="60.0" text="CPF" />
                               <TableColumn fx:id="animalAdocao" prefWidth="120.0" text="Animal" />
                           </columns>
                         </TableView>

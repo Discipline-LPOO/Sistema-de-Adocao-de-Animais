@@ -29,4 +29,10 @@ public class AdocaoDao extends Dao<Adocao>{
         query.setParameter("nome", textoBusca);
         return query.getResultList();
     }
+
+    public static List<Adocao> selectAnimaisAdotados() {
+        TypedQuery<Adocao> query = em.createQuery(
+                "SELECT a FROM adocoes ad WHERE ad.id_animal = ", Adocao.class
+        );
+        return query.getResultList();
 }

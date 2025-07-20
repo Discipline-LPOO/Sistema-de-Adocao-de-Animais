@@ -50,7 +50,7 @@
             <ChoiceBox fx:id="buscaChoice" layoutX="167.0" layoutY="187.0" prefHeight="26.0" prefWidth="194.0" />
             <Label layoutX="97.0" layoutY="191.0" text="Conteúdo:" />
             <Button layoutX="294.0" layoutY="313.0" mnemonicParsing="false" onAction="#buscar" text="Buscar" />
-            <Button fx:id="homeButton" layoutX="45.0" layoutY="39.0" mnemonicParsing="false" text="Button" />
+            <Button fx:id="homeButton" layoutX="45.0" layoutY="39.0" mnemonicParsing="false" onAction="#voltarMenu" text="Menu" />
       </children>
     </AnchorPane>
   </children>
